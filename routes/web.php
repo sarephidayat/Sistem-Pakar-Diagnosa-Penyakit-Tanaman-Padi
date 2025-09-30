@@ -9,6 +9,17 @@ use App\Http\Controllers\DashboardController;
 Route::get('/', function () {
     return view('index');
 });
+Route::get('/loginuser', function () {
+    return view('Login');
+})->name('Login');
+
+Route::get('/registrasiuser', function () {
+    return view('Regis');
+})->name('Regis');
+
+Route::get('/Home', function () {
+    return view('welcome');
+})->name('home');
 
 // login routes
 Route::get('/login', [AuthController::class, 'showLogin'])->name('login');

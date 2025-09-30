@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
@@ -40,9 +39,8 @@ return new class extends Migration
     /**
      * Reverse the migrations.
      */
-    public function down(): voidDB_CONNECTION=mysql
-    DB_HOST=127.0.0.1
-    DB_PORT=3306
-    DB_DATABASE=diagnosa_penyakit_padi
-    DB_USERNAME=root
-    DB_PASSWORD=
+    public function down(): void
+    {
+
+    }
+};
