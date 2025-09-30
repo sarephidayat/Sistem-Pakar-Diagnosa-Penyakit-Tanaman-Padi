@@ -10,13 +10,13 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('login', function (Blueprint $table) {
-            $table->id();
-            $table->string('username', 20);
-            $table->string('password', 255); // sebaiknya di-hash
+        Schema::create('master_gejala', function (Blueprint $table) {
+            $table->id('id_gejala');
+            $table->string('kode_gejala')->unique();
+            $table->string('nama_gejala');
+            $table->string('pertanyaan');
             $table->timestamps();
         });
-
     }
 
     /**
@@ -24,6 +24,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('login');
+        Schema::dropIfExists('master_gejala');
     }
 };

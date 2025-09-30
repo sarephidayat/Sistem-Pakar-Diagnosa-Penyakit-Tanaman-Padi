@@ -5,6 +5,10 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DosenController;
 use App\Http\Controllers\DashboardController;
 
+// halaman utama
+Route::get('/', function () {
+    return view('index');
+});
 
 // login routes
 Route::get('/login', [AuthController::class, 'showLogin'])->name('login');

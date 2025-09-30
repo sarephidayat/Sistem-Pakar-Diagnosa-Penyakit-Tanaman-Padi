@@ -10,13 +10,13 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('matakuliah', function (Blueprint $table) {
-            $table->string('kode_matkul', 12)->primary();
-            $table->string('nama_matkul', 50);
-            $table->integer('sks');
+        Schema::create('master_penyakit', function (Blueprint $table) {
+            $table->id('id_penyakit');
+            $table->string('kode_penyakit')->unique();
+            $table->string('nama_penyakit');
+            $table->text('solusi');
             $table->timestamps();
         });
-
     }
 
     /**
@@ -24,6 +24,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('matakuliah');
+        Schema::dropIfExists('master_penyakit');
     }
 };

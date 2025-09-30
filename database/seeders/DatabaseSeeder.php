@@ -13,13 +13,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        // Jalankan semua seeder yang dibutuhkan
         $this->call([
-            LoginSeeder::class,
-            DosenSeeder::class,
-            MahasiswaSeeder::class,
-            MatakuliahSeeder::class,
-            NilaiSeeder::class,
+            MasterPenyakitSeeder::class,
+            MasterGejalaSeeder::class,
+            MasterStatusSeeder::class,
+            MasterRuleSeeder::class
         ]);
     }
 }

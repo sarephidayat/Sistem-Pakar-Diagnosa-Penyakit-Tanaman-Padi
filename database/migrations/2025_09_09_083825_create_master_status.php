@@ -10,11 +10,9 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('dosen', function (Blueprint $table) {
-            $table->string('nidn', 12)->primary();
-            $table->string('nama_dosen', 50);
-            $table->string('jenkel_dosen', 10);
-            $table->string('alamat_dosen', 60);
+        Schema::create('master_status', function (Blueprint $table) {
+            $table->id('id_status');
+            $table->string('nama_status');
             $table->timestamps();
         });
     }
@@ -24,6 +22,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('dosen');
+        Schema::dropIfExists('master_status');
     }
 };
