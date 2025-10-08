@@ -238,7 +238,7 @@
                     <i data-feather="cpu" class="logo-icon"></i>
                     <span class="logo-text" style="margin-left: 0.2vw;">OryzaDoc</span>
                 </div>
-                <h2 class="auth-title">Masuk ke Akun Anda</h2>
+                <h2 class="auth-title">Masuk ke Akun Anda uh</h2>
                 <p class="auth-subtitle">Silakan masuk untuk melanjutkan</p>
             </div>
             
