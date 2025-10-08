@@ -295,27 +295,27 @@
                     <div class="bg-primary-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
                         <span class="text-primary-600 font-bold text-2xl">2</span>
                     </div>
-                    <h3 class="text-lg font-semibold text-gray-800 mb-2">Pilih Gejala</h3>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-2">Unggah Foto</h3>
                     <p class="text-gray-600">
-                    Pilih dari daftar gejala yang sesuai dengan kondisi tanaman padi Anda.
+                        Ambil foto jelas tanaman yang terkena atau unggah dari galeri Anda.
                     </p>
                 </div>
                 <div class="text-center" data-aos="fade-up" data-aos-delay="200">
                     <div class="bg-primary-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
                         <span class="text-primary-600 font-bold text-2xl">3</span>
                     </div>
-                    <h3 class="text-lg font-semibold text-gray-800 mb-2">Analisis Sistem Pakar</h3>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-2">Analisis AI</h3>
                     <p class="text-gray-600">
-                    Sistem kami menganalisis berdasarkan pengetahuan ahli pertanian.
+                        Sistem kami menganalisis gambar menggunakan teknologi computer vision canggih.
                     </p>
                 </div>
                 <div class="text-center" data-aos="fade-up" data-aos-delay="300">
                     <div class="bg-primary-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
                         <span class="text-primary-600 font-bold text-2xl">4</span>
                     </div>
-                    <h3 class="text-lg font-semibold text-gray-800 mb-2">Dapatkan Diagnosa</h3>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-2">Dapatkan Hasil</h3>
                     <p class="text-gray-600">
-                    Terima diagnosis akurat dan rekomendasi penanganan yang tepat.
+                        Terima diagnosis instan dan rekomendasi pengobatan.
                     </p>
                 </div>
             </div>
