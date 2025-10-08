@@ -50,3 +50,26 @@ Route::post('/dosen/update/{nidn}', [DosenController::class, 'update']);
 // hapus dosen
 Route::get('/dosen/delete/{nidn}', [DosenController::class, 'destroy']);
 
+
+Route::get('/diagnosa', [App\Http\Controllers\DiagnosaController::class, 'index'])
+    // ->middleware(['auth', 'verified'])
+    ->name('diagnosa');
+
+Route::post('/diagnosa', [App\Http\Controllers\DiagnosaController::class, 'diagnosa'])
+    ->name('diagnosa');
+
+Route::get('/hasilDiagnosa', [App\Http\Controllers\DiagnosaController::class, 'HasilDiagnosa'])
+    ->middleware(['auth', 'verified'])
+    ->name('hasilDiagnosa');
+
+Route::get('/diagnosa', function () {
+    return view('diagnosa');
+})->name('diagnosa');
+
+Route::get('/Login', function () {
+    return view('Login');
+})->name('Login');
+
+Route::get('/Registrasi', function () {
+    return view('Regis');
+})->name('Regis');

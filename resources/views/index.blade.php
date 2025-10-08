@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OryzaDoc - Smart Diagnosis for Healthy Rice Plants</title>
+    <title>OryzaDoc - Diagnosis Pintar untuk Tanaman Padi Sehat</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -55,28 +56,35 @@
     </script>
     <style>
         /* Warna teks normal semua menu */
-.navbar a {
-  color: #4b5563;       /* contoh abu-abu */
-  text-decoration: none;
-  padding-bottom: 4px;
-  transition: color 0.3s, border-color 0.3s;
-}
+        .navbar a {
+            color: #4b5563;
+            /* contoh abu-abu */
+            text-decoration: none;
+            padding-bottom: 4px;
+            transition: color 0.3s, border-color 0.3s;
+        }
 
-/* Warna saat hover */
-.navbar a:hover {
-  color: #6ba31b;       /* hijau */
-}
+        /* Warna saat hover */
+        .navbar a:hover {
+            color: #6ba31b;
+            /* hijau */
+        }
 
-/* State aktif saat section terlihat */
-.nav-active {
-  color: #6ba31b;
-  border-bottom: 3px solid #6ba31b;
-}
+        /* State aktif saat section terlihat */
+        .nav-active {
+            color: #6ba31b;
+            border-bottom: 3px solid #6ba31b;
+        }
+        .nav-buttons {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
 
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-        
     </style>
 </head>
+
 <body class="font-sans bg-white text-gray-800">
     <!-- Navigation -->
     <nav class="fixed w-full bg-white shadow-sm z-50">
@@ -90,13 +98,17 @@
                 </div>
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-center space-x-4">
-                        <a href="#home" class="text-primary-600 hover:text-primary-800 px-3 py-2 text-sm font-medium">Home</a>
-                        <a href="#about" class="text-gray-600 hover:text-primary-600 px-3 py-2 text-sm font-medium">About</a>
-                        <a href="#features" class="text-gray-600 hover:text-primary-600 px-3 py-2 text-sm font-medium">Features</a>
-                        <a href="#how-it-works" class="text-gray-600 hover:text-primary-600 px-3 py-2 text-sm font-medium">How It Works</a>
-                        <a href="#testimonials" class="text-gray-600 hover:text-primary-600 px-3 py-2 text-sm font-medium">Testimonials</a>
-                        <a href="#team" class="text-gray-600 hover:text-primary-600 px-3 py-2 text-sm font-medium">Team</a>
+                        <a href="#home" class="text-primary-600 hover:text-primary-800 px-3 py-2 text-sm font-medium">Beranda</a>
+                        <a href="#about" class="text-gray-600 hover:text-primary-600 px-3 py-2 text-sm font-medium">Tentang</a>
+                        <a href="#features" class="text-gray-600 hover:text-primary-600 px-3 py-2 text-sm font-medium">Fitur</a>
+                        <a href="#how-it-works" class="text-gray-600 hover:text-primary-600 px-3 py-2 text-sm font-medium">Cara Kerja</a>
+                        <a href="#testimonials" class="text-gray-600 hover:text-primary-600 px-3 py-2 text-sm font-medium">Testimoni</a>
+                        <a href="#team" class="text-gray-600 hover:text-primary-600 px-3 py-2 text-sm font-medium">Tim</a>
                     </div>
+                </div>
+                <div class="nav-buttons">
+                    <a href="{{ route('Login') }}" class="text-gray-600 hover:text-primary-600 px-3 py-2 text-sm font-medium">Masuk</a>
+                    <a href="{{ route('Regis') }}" class="text-gray-600 hover:text-primary-600 px-3 py-2 text-sm font-medium">Daftar</a>
                 </div>
                 <div class="md:hidden">
                     <button class="mobile-menu-button p-2 rounded-md text-gray-700 hover:text-primary-600 focus:outline-none">
@@ -110,12 +122,12 @@
     <!-- Mobile Menu -->
     <div class="mobile-menu hidden md:hidden fixed inset-0 z-40 bg-white mt-16">
         <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            <a href="#home" class="bloc text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-gray-50">Home</a>
-            <a href="#about" class="bloc text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-gray-50">About</a>
-            <a href="#features" class="bloc text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-gray-50">Features</a>
-            <a href="#how-it-works" class="bloc text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-gray-50">How It Works</a>
-            <a href="#testimonials" class="bloc text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-gray-50">Testimonials</a>
-            <a href="#team" class="bloc text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-gray-50">Team</a>
+            <a href="#home" class="bloc text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-gray-50">Beranda</a>
+            <a href="#about" class="bloc text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-gray-50">Tentang</a>
+            <a href="#features" class="bloc text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-gray-50">Fitur</a>
+            <a href="#how-it-works" class="bloc text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-gray-50">Cara Kerja</a>
+            <a href="#testimonials" class="bloc text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-gray-50">Testimoni</a>
+            <a href="#team" class="bloc text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-gray-50">Tim</a>
         </div>
     </div>
 
@@ -125,22 +137,22 @@
             <div class="md:flex md:items-center md:justify-between">
                 <div class="md:w-1/2 mb-10 md:mb-0" data-aos="fade-right">
                     <h1 class="text-4xl md:text-5xl font-bold text-gray-800 leading-tight mb-4">
-                        Smart Diagnosis for <span class="text-primary-600">Healthy Rice Plants</span>
+                        Diagnosis Pintar untuk <span class="text-primary-600">Tanaman Padi Sehat</span>
                     </h1>
                     <p class="text-lg text-gray-600 mb-8">
-                        OryzaDoc helps farmers identify rice plant diseases quickly and accurately using AI-powered technology.
+                        OryzaDoc membantu petani mengidentifikasi penyakit tanaman padi dengan cepat dan akurat menggunakan teknologi berbasis AI.
                     </p>
                     <div class="flex flex-wrap gap-4">
                         <a href="#diagnose" class="bg-primary-500 hover:bg-primary-600 text-white font-medium py-3 px-6 rounded-lg shadow-md transition duration-300">
-                            Diagnose Now <i data-feather="arrow-right" class="ml-2 inline"></i>
+                            Diagnosis Sekarang <i data-feather="arrow-right" class="ml-2 inline"></i>
                         </a>
                         <a href="#how-it-works" class="border border-primary-500 text-primary-500 hover:bg-primary-50 font-medium py-3 px-6 rounded-lg transition duration-300">
-                            Learn More
+                            Pelajari Lebih Lanjut
                         </a>
                     </div>
                 </div>
                 <div class="md:w-1/2" data-aos="fade-left">
-                    <img src="http://static.photos/agriculture/640x360/1" alt="Healthy Rice Field" class="rounded-lg shadow-xl">
+                    <img src="https://i.pinimg.com/736x/b6/39/b2/b639b249897cb4b75577004ed6217eb5.jpg" alt="Sawah Padi Sehat" class="rounded-lg shadow-xl">
                 </div>
             </div>
         </div>
@@ -150,39 +162,39 @@
     <section id="about" class="py-16 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-gray-800 mb-4" data-aos="fade-up">What is OryzaDoc?</h2>
+                <h2 class="text-3xl font-bold text-gray-800 mb-4" data-aos="fade-up">Apa itu OryzaDoc?</h2>
                 <div class="w-20 h-1 bg-primary-500 mx-auto mb-6" data-aos="fade-up" data-aos-delay="100"></div>
                 <p class="text-lg text-gray-600 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="200">
-                    OryzaDoc is an expert system designed to help farmers diagnose rice plant diseases quickly and accurately. 
-                    Our AI-powered platform analyzes symptoms and provides recommendations for treatment.
+                    OryzaDoc adalah sistem pakar yang dirancang untuk membantu petani mendiagnosis penyakit tanaman padi dengan cepat dan akurat.
+                    Platform kami yang didukung AI menganalisis gejala dan memberikan rekomendasi pengobatan.
                 </p>
             </div>
             <div class="grid md:grid-cols-2 gap-8 items-center">
                 <div data-aos="fade-right">
-                    <img src="http://static.photos/technology/640x360/2" alt="Technology" class="rounded-lg shadow-lg">
+                    <img src="https://i.pinimg.com/1200x/bf/fa/98/bffa98ba7e4e0fb03bd1a0b0591fc14b.jpg" alt="Teknologi" class="rounded-lg shadow-lg">
                 </div>
                 <div data-aos="fade-left">
-                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Our Mission</h3>
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Misi Kami</h3>
                     <p class="text-gray-600 mb-6">
-                        We aim to empower rice farmers with technology that helps them make informed decisions about their crops, 
-                        reducing losses and increasing yields through accurate disease diagnosis.
+                        Kami bertujuan memberdayakan petani padi dengan teknologi yang membantu mereka membuat keputusan tepat tentang tanaman mereka,
+                        mengurangi kerugian dan meningkatkan hasil panen melalui diagnosis penyakit yang akurat.
                     </p>
                     <ul class="space-y-3">
                         <li class="flex items-start">
                             <i data-feather="check-circle" class="text-primary-500 mr-3 mt-1"></i>
-                            <span class="text-gray-700">AI-powered disease detection</span>
+                            <span class="text-gray-700">Deteksi penyakit berbasis AI</span>
                         </li>
                         <li class="flex items-start">
                             <i data-feather="check-circle" class="text-primary-500 mr-3 mt-1"></i>
-                            <span class="text-gray-700">Instant diagnosis results</span>
+                            <span class="text-gray-700">Hasil diagnosis instan</span>
                         </li>
                         <li class="flex items-start">
                             <i data-feather="check-circle" class="text-primary-500 mr-3 mt-1"></i>
-                            <span class="text-gray-700">Treatment recommendations</span>
+                            <span class="text-gray-700">Rekomendasi pengobatan</span>
                         </li>
                         <li class="flex items-start">
                             <i data-feather="check-circle" class="text-primary-500 mr-3 mt-1"></i>
-                            <span class="text-gray-700">Preventive measures</span>
+                            <span class="text-gray-700">Tindakan pencegahan</span>
                         </li>
                     </ul>
                 </div>
@@ -194,10 +206,10 @@
     <section id="features" class="py-16 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-gray-800 mb-4" data-aos="fade-up">Why Choose OryzaDoc?</h2>
+                <h2 class="text-3xl font-bold text-gray-800 mb-4" data-aos="fade-up">Mengapa Memilih OryzaDoc?</h2>
                 <div class="w-20 h-1 bg-primary-500 mx-auto mb-6" data-aos="fade-up" data-aos-delay="100"></div>
                 <p class="text-lg text-gray-600 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="200">
-                    Our platform offers several advantages that make it the best choice for rice farmers.
+                    Platform kami menawarkan beberapa keunggulan yang menjadikannya pilihan terbaik untuk petani padi.
                 </p>
             </div>
             <div class="grid md:grid-cols-3 gap-8">
@@ -205,54 +217,54 @@
                     <div class="text-primary-500 mb-4">
                         <i data-feather="activity" class="h-10 w-10"></i>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Accurate Diagnosis</h3>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Diagnosis Akurat</h3>
                     <p class="text-gray-600">
-                        Our AI model has been trained on thousands of rice plant images to provide highly accurate disease identification.
+                        Model AI kami telah dilatih dengan ribuan gambar tanaman padi untuk memberikan identifikasi penyakit yang sangat akurat.
                     </p>
                 </div>
                 <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300" data-aos="fade-up" data-aos-delay="100">
                     <div class="text-primary-500 mb-4">
                         <i data-feather="clock" class="h-10 w-10"></i>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Fast Results</h3>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Hasil Cepat</h3>
                     <p class="text-gray-600">
-                        Get diagnosis results in seconds, allowing you to take immediate action to protect your crops.
+                        Dapatkan hasil diagnosis dalam hitungan detik, memungkinkan Anda mengambil tindakan segera untuk melindungi tanaman.
                     </p>
                 </div>
                 <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300" data-aos="fade-up" data-aos-delay="200">
                     <div class="text-primary-500 mb-4">
                         <i data-feather="smartphone" class="h-10 w-10"></i>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Easy to Use</h3>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Mudah Digunakan</h3>
                     <p class="text-gray-600">
-                        Simple interface designed for farmers with minimal technical knowledge. Just upload a photo and get results.
+                        Antarmuka sederhana yang dirancang untuk petani dengan pengetahuan teknis minimal. Cukup unggah foto dan dapatkan hasil.
                     </p>
                 </div>
                 <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300" data-aos="fade-up">
                     <div class="text-primary-500 mb-4">
                         <i data-feather="book-open" class="h-10 w-10"></i>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Comprehensive Database</h3>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Basis Data Komprehensif</h3>
                     <p class="text-gray-600">
-                        Access to extensive information about rice diseases, symptoms, and treatment options.
+                        Akses ke informasi ekstensif tentang penyakit padi, gejala, dan opsi pengobatan.
                     </p>
                 </div>
                 <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300" data-aos="fade-up" data-aos-delay="100">
                     <div class="text-primary-500 mb-4">
                         <i data-feather="dollar-sign" class="h-10 w-10"></i>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Cost Effective</h3>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Efektif Biaya</h3>
                     <p class="text-gray-600">
-                        Save money by preventing unnecessary pesticide use and catching diseases early.
+                        Hemat uang dengan mencegah penggunaan pestisida yang tidak perlu dan mendeteksi penyakit sejak dini.
                     </p>
                 </div>
                 <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300" data-aos="fade-up" data-aos-delay="200">
                     <div class="text-primary-500 mb-4">
                         <i data-feather="globe" class="h-10 w-10"></i>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Available Anywhere</h3>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Tersedia Di Mana Saja</h3>
                     <p class="text-gray-600">
-                        Access our platform from any device with an internet connection, even in remote areas.
+                        Akses platform kami dari perangkat apa pun dengan koneksi internet, bahkan di daerah terpencil.
                     </p>
                 </div>
             </div>
@@ -263,10 +275,10 @@
     <section id="how-it-works" class="py-16 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-gray-800 mb-4" data-aos="fade-up">How OryzaDoc Works</h2>
+                <h2 class="text-3xl font-bold text-gray-800 mb-4" data-aos="fade-up">Cara Kerja OryzaDoc</h2>
                 <div class="w-20 h-1 bg-primary-500 mx-auto mb-6" data-aos="fade-up" data-aos-delay="100"></div>
                 <p class="text-lg text-gray-600 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="200">
-                    Getting a diagnosis for your rice plants is simple and straightforward.
+                    Mendapatkan diagnosis untuk tanaman padi Anda sederhana dan mudah.
                 </p>
             </div>
             <div class="grid md:grid-cols-4 gap-8">
@@ -274,42 +286,42 @@
                     <div class="bg-primary-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
                         <span class="text-primary-600 font-bold text-2xl">1</span>
                     </div>
-                    <h3 class="text-lg font-semibold text-gray-800 mb-2">Access Platform</h3>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-2">Akses Platform</h3>
                     <p class="text-gray-600">
-                        Open OryzaDoc on your smartphone, tablet, or computer.
+                        Buka OryzaDoc di ponsel cerdas, tablet, atau komputer Anda.
                     </p>
                 </div>
                 <div class="text-center" data-aos="fade-up" data-aos-delay="100">
                     <div class="bg-primary-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
                         <span class="text-primary-600 font-bold text-2xl">2</span>
                     </div>
-                    <h3 class="text-lg font-semibold text-gray-800 mb-2">Upload Photo</h3>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-2">Unggah Foto</h3>
                     <p class="text-gray-600">
-                        Take a clear photo of the affected plant or upload from your gallery.
+                        Ambil foto jelas tanaman yang terkena atau unggah dari galeri Anda.
                     </p>
                 </div>
                 <div class="text-center" data-aos="fade-up" data-aos-delay="200">
                     <div class="bg-primary-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
                         <span class="text-primary-600 font-bold text-2xl">3</span>
                     </div>
-                    <h3 class="text-lg font-semibold text-gray-800 mb-2">AI Analysis</h3>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-2">Analisis AI</h3>
                     <p class="text-gray-600">
-                        Our system analyzes the image using advanced computer vision.
+                        Sistem kami menganalisis gambar menggunakan teknologi computer vision canggih.
                     </p>
                 </div>
                 <div class="text-center" data-aos="fade-up" data-aos-delay="300">
                     <div class="bg-primary-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
                         <span class="text-primary-600 font-bold text-2xl">4</span>
                     </div>
-                    <h3 class="text-lg font-semibold text-gray-800 mb-2">Get Results</h3>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-2">Dapatkan Hasil</h3>
                     <p class="text-gray-600">
-                        Receive instant diagnosis and treatment recommendations.
+                        Terima diagnosis instan dan rekomendasi pengobatan.
                     </p>
                 </div>
             </div>
             <div class="mt-12 text-center" data-aos="fade-up">
                 <a href="#diagnose" class="bg-primary-500 hover:bg-primary-600 text-white font-medium py-3 px-8 rounded-lg shadow-md transition duration-300 inline-flex items-center">
-                    Try It Now <i data-feather="arrow-right" class="ml-2"></i>
+                    Coba Sekarang <i data-feather="arrow-right" class="ml-2"></i>
                 </a>
             </div>
         </div>
@@ -319,23 +331,23 @@
     <section id="testimonials" class="py-16 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-gray-800 mb-4" data-aos="fade-up">What Our Users Say</h2>
+                <h2 class="text-3xl font-bold text-gray-800 mb-4" data-aos="fade-up">Apa Kata Pengguna Kami</h2>
                 <div class="w-20 h-1 bg-primary-500 mx-auto mb-6" data-aos="fade-up" data-aos-delay="100"></div>
                 <p class="text-lg text-gray-600 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="200">
-                    Hear from farmers who have benefited from using OryzaDoc.
+                    Dengarkan dari petani yang telah merasakan manfaat menggunakan OryzaDoc.
                 </p>
             </div>
             <div class="grid md:grid-cols-3 gap-8">
                 <div class="bg-white p-6 rounded-lg shadow-md" data-aos="fade-up">
                     <div class="flex items-center mb-4">
-                        <img src="http://static.photos/people/100x100/1" alt="User" class="w-12 h-12 rounded-full mr-4">
+                        <img src="http://static.photos/people/100x100/1" alt="Pengguna" class="w-12 h-12 rounded-full mr-4">
                         <div>
-                            <h4 class="font-semibold text-gray-800">Budi Santoso</h4>
-                            <p class="text-gray-500 text-sm">Rice Farmer, Central Java</p>
+                            <h4 class="font-semibold text-gray-800">Arif Santoso</h4>
+                            <p class="text-gray-500 text-sm">Petani Padi, Jawa Tengah</p>
                         </div>
                     </div>
                     <p class="text-gray-600">
-                        "OryzaDoc helped me identify a bacterial leaf blight infection early. The treatment recommendations saved my entire crop!"
+                        "OryzaDoc membantu saya mengidentifikasi infeksi hawar daun bakteri sejak dini. Rekomendasi pengobatannya menyelamatkan seluruh panen saya!"
                     </p>
                     <div class="mt-4 text-primary-500">
                         <i data-feather="star" class="w-4 h-4 inline"></i>
@@ -347,14 +359,14 @@
                 </div>
                 <div class="bg-white p-6 rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="100">
                     <div class="flex items-center mb-4">
-                        <img src="http://static.photos/people/100x100/2" alt="User" class="w-12 h-12 rounded-full mr-4">
+                        <img src="http://static.photos/people/100x100/2" alt="Pengguna" class="w-12 h-12 rounded-full mr-4">
                         <div>
-                            <h4 class="font-semibold text-gray-800">Siti Rahayu</h4>
-                            <p class="text-gray-500 text-sm">Farm Owner, West Java</p>
+                            <h4 class="font-semibold text-gray-800">Siti Nuraini</h4>
+                            <p class="text-gray-500 text-sm">Pemilik Lahan, Jawa Barat</p>
                         </div>
                     </div>
                     <p class="text-gray-600">
-                        "As someone new to rice farming, OryzaDoc has been invaluable. It's like having an expert by my side at all times."
+                        "Sebagai seseorang yang baru dalam budidaya padi, OryzaDoc sangat berharga. Rasanya seperti memiliki pakar di samping saya setiap saat."
                     </p>
                     <div class="mt-4 text-primary-500">
                         <i data-feather="star" class="w-4 h-4 inline"></i>
@@ -366,14 +378,14 @@
                 </div>
                 <div class="bg-white p-6 rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="200">
                     <div class="flex items-center mb-4">
-                        <img src="http://static.photos/people/100x100/3" alt="User" class="w-12 h-12 rounded-full mr-4">
+                        <img src="http://static.photos/people/100x100/3" alt="Pengguna" class="w-12 h-12 rounded-full mr-4">
                         <div>
-                            <h4 class="font-semibold text-gray-800">Agus Setiawan</h4>
-                            <p class="text-gray-500 text-sm">Agricultural Extension Officer</p>
+                            <h4 class="font-semibold text-gray-800">Agus Buntung</h4>
+                            <p class="text-gray-500 text-sm">Penyuluh Pertanian</p>
                         </div>
                     </div>
                     <p class="text-gray-600">
-                        "I recommend OryzaDoc to all the farmers I work with. It's accurate, easy to use, and has significantly reduced crop losses."
+                        "Saya merekomendasikan OryzaDoc kepada semua petani yang saya bina. Akurat, mudah digunakan, dan telah mengurangi kerugian panen secara signifikan."
                     </p>
                     <div class="mt-4 text-primary-500">
                         <i data-feather="star" class="w-4 h-4 inline"></i>
@@ -391,19 +403,19 @@
     <section id="team" class="py-16 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-gray-800 mb-4" data-aos="fade-up">Meet Our Team</h2>
+                <h2 class="text-3xl font-bold text-gray-800 mb-4" data-aos="fade-up">Kenali Tim Kami</h2>
                 <div class="w-20 h-1 bg-primary-500 mx-auto mb-6" data-aos="fade-up" data-aos-delay="100"></div>
                 <p class="text-lg text-gray-600 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="200">
-                    The passionate people behind OryzaDoc.
+                    Orang-orang berdedikasi di balik OryzaDoc.
                 </p>
             </div>
             <div class="grid md:grid-cols-3 gap-8">
                 <div class="text-center" data-aos="fade-up">
-                    <img src="http://static.photos/people/200x200/4" alt="Team Member" class="w-32 h-32 rounded-full mx-auto mb-4 shadow-md">
+                    <img src="http://static.photos/people/200x200/4" alt="Anggota Tim" class="w-32 h-32 rounded-full mx-auto mb-4 shadow-md">
                     <h3 class="text-xl font-semibold text-gray-800 mb-1">Dr. Anwar Ibrahim</h3>
-                    <p class="text-primary-600 font-medium mb-3">Founder & CEO</p>
+                    <p class="text-primary-600 font-medium mb-3">Pendiri & CEO</p>
                     <p class="text-gray-600">
-                        Agricultural scientist with 15 years of experience in rice pathology and disease management.
+                        Ilmuwan pertanian dengan 15 tahun pengalaman dalam patologi padi dan manajemen penyakit.
                     </p>
                     <div class="mt-4 flex justify-center space-x-3">
                         <a href="#" class="text-gray-500 hover:text-primary-500">
@@ -415,11 +427,11 @@
                     </div>
                 </div>
                 <div class="text-center" data-aos="fade-up" data-aos-delay="100">
-                    <img src="http://static.photos/people/200x200/5" alt="Team Member" class="w-32 h-32 rounded-full mx-auto mb-4 shadow-md">
+                    <img src="http://static.photos/people/200x200/5" alt="Anggota Tim" class="w-32 h-32 rounded-full mx-auto mb-4 shadow-md">
                     <h3 class="text-xl font-semibold text-gray-800 mb-1">Sarah Wijaya</h3>
-                    <p class="text-primary-600 font-medium mb-3">AI Specialist</p>
+                    <p class="text-primary-600 font-medium mb-3">Spesialis AI</p>
                     <p class="text-gray-600">
-                        Machine learning expert focused on computer vision applications for agriculture.
+                        Ahli pembelajaran mesin yang berfokus pada aplikasi computer vision untuk pertanian.
                     </p>
                     <div class="mt-4 flex justify-center space-x-3">
                         <a href="#" class="text-gray-500 hover:text-primary-500">
@@ -431,11 +443,11 @@
                     </div>
                 </div>
                 <div class="text-center" data-aos="fade-up" data-aos-delay="200">
-                    <img src="http://static.photos/people/200x200/6" alt="Team Member" class="w-32 h-32 rounded-full mx-auto mb-4 shadow-md">
+                    <img src="http://static.photos/people/200x200/6" alt="Anggota Tim" class="w-32 h-32 rounded-full mx-auto mb-4 shadow-md">
                     <h3 class="text-xl font-semibold text-gray-800 mb-1">Rudi Hartono</h3>
-                    <p class="text-primary-600 font-medium mb-3">Agricultural Engineer</p>
+                    <p class="text-primary-600 font-medium mb-3">Insinyur Pertanian</p>
                     <p class="text-gray-600">
-                        Designs field testing protocols and ensures our solutions work in real-world conditions.
+                        Merancang protokol pengujian lapangan dan memastikan solusi kami bekerja dalam kondisi dunia nyata.
                     </p>
                     <div class="mt-4 flex justify-center space-x-3">
                         <a href="#" class="text-gray-500 hover:text-primary-500">
@@ -453,16 +465,16 @@
     <!-- CTA -->
     <section id="diagnose" class="py-16 bg-primary-600 text-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-3xl font-bold mb-6" data-aos="fade-up">Ready to Diagnose Your Rice Plants?</h2>
+            <h2 class="text-3xl font-bold mb-6" data-aos="fade-up">Siap Mendiagnosis Tanaman Padi Anda?</h2>
             <p class="text-lg mb-8 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="100">
-                Join thousands of farmers who are protecting their crops with OryzaDoc.
+                Bergabunglah dengan ribuan petani yang melindungi tanaman mereka dengan OryzaDoc.
             </p>
             <div class="flex flex-wrap justify-center gap-4" data-aos="fade-up" data-aos-delay="200">
-                <a href="#" class="bg-white text-primary-600 hover:bg-gray-100 font-medium py-3 px-8 rounded-lg shadow-md transition duration-300">
-                    Start Diagnosis
+                <a href="{{ route('diagnosa') }}"  class="bg-white text-primary-600 hover:bg-gray-100 font-medium py-3 px-8 rounded-lg shadow-md transition duration-300">
+                    Mulai Diagnosis
                 </a>
                 <a href="#" class="border border-white text-white hover:bg-primary-700 font-medium py-3 px-8 rounded-lg transition duration-300">
-                    Contact Us
+                    Hubungi Kami
                 </a>
             </div>
         </div>
@@ -478,7 +490,7 @@
                         <span class="ml-2 text-xl font-bold">OryzaDoc</span>
                     </div>
                     <p class="text-gray-400 mb-4">
-                        Smart diagnosis for healthy rice plants using AI technology.
+                        Diagnosis pintar untuk tanaman padi sehat menggunakan teknologi AI.
                     </p>
                     <div class="flex space-x-4">
                         <a href="#" class="text-gray-400 hover:text-white">
@@ -496,26 +508,26 @@
                     </div>
                 </div>
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <h3 class="text-lg font-semibold mb-4">Tautan Cepat</h3>
                     <ul class="space-y-2">
-                        <li><a href="#home" class="text-gray-400 hover:text-white">Home</a></li>
-                        <li><a href="#about" class="text-gray-400 hover:text-white">About</a></li>
-                        <li><a href="#features" class="text-gray-400 hover:text-white">Features</a></li>
-                        <li><a href="#how-it-works" class="text-gray-400 hover:text-white">How It Works</a></li>
-                        <li><a href="#testimonials" class="text-gray-400 hover:text-white">Testimonials</a></li>
+                        <li><a href="#home" class="text-gray-400 hover:text-white">Beranda</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white">Tentang</a></li>
+                        <li><a href="#features" class="text-gray-400 hover:text-white">Fitur</a></li>
+                        <li><a href="#how-it-works" class="text-gray-400 hover:text-white">Cara Kerja</a></li>
+                        <li><a href="#testimonials" class="text-gray-400 hover:text-white">Testimoni</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">Resources</h3>
+                    <h3 class="text-lg font-semibold mb-4">Sumber Daya</h3>
                     <ul class="space-y-2">
                         <li><a href="#" class="text-gray-400 hover:text-white">Blog</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white">FAQs</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white">Rice Disease Guide</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white">Research Papers</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">FAQ</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Panduan Penyakit Padi</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Makalah Penelitian</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">Contact Us</h3>
+                    <h3 class="text-lg font-semibold mb-4">Hubungi Kami</h3>
                     <ul class="space-y-2 text-gray-400">
                         <li class="flex items-start">
                             <i data-feather="mail" class="mr-3 mt-1 w-4 h-4"></i>
@@ -533,39 +545,38 @@
                 </div>
             </div>
             <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-                <p>&copy; 2023 OryzaDoc. All rights reserved.</p>
+                <p>&copy; 2023 OryzaDoc. Semua hak dilindungi.</p>
             </div>
         </div>
     </footer>
 
     <!-- Scripts -->
+    <!-- Scripts -->
     <script>
-        
         // === Highlight menu on scroll ===
-const sections = document.querySelectorAll('section[id]');
-const navLinks = document.querySelectorAll('.ml-10 a');
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.ml-10 a');
 
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        // 1. Bersihkan semua nav dari kelas aktif
-        navLinks.forEach((link) => link.classList.remove('nav-active'));
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        // 1. Bersihkan semua nav dari kelas aktif
+                        navLinks.forEach((link) => link.classList.remove('nav-active'));
 
-        // 2. Ambil link sesuai id section yang terlihat
-        const id = entry.target.getAttribute('id');
-        const currentLink = document.querySelector(`.ml-10 a[href="#${id}"]`);
-        if (currentLink) currentLink.classList.add('nav-active');
-      }
-    });
-  },
-  {
-    rootMargin: '-40% 0px -55% 0px',
-    threshold: 0,
-  }
-);
+                        // 2. Ambil link sesuai id section yang terlihat
+                        const id = entry.target.getAttribute('id');
+                        const currentLink = document.querySelector(`.ml-10 a[href="#${id}"]`);
+                        if (currentLink) currentLink.classList.add('nav-active');
+                    }
+                });
+            }, {
+                rootMargin: '-40% 0px -55% 0px',
+                threshold: 0,
+            }
+        );
 
-sections.forEach((section) => observer.observe(section));
+        sections.forEach((section) => observer.observe(section));
 
 
         // Initialize AOS animation
@@ -593,12 +604,12 @@ sections.forEach((section) => observer.observe(section));
 
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+            anchor.addEventListener('click', function(e) {
                 e.preventDefault();
-                
+
                 const targetId = this.getAttribute('href');
                 if (targetId === '#') return;
-                
+
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
                     window.scrollTo({
@@ -613,4 +624,5 @@ sections.forEach((section) => observer.observe(section));
         feather.replace();
     </script>
 </body>
+
 </html>
