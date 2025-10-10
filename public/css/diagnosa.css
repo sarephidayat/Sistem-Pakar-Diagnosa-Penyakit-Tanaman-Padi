@@ -378,3 +378,65 @@ body {
         transform: translateY(0);
     }
 }
+
+/* diagnosa.css - Tambahan untuk header */
+.diagnosa-header {
+    position: relative;
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header-content {
+    width: 100%;
+}
+
+.back-button {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 5px 10px;
+    background: var(--primary-light);
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(46, 125, 50, 0.3);
+}
+
+.back-button:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(46, 125, 50, 0.4);
+    color: white;
+    text-decoration: none;
+}
+
+/* Responsive design untuk back button */
+@media (max-width: 768px) {
+    .back-button {
+        position: relative;
+        top: auto;
+        left: auto;
+        align-self: flex-end;
+        margin-bottom: 5px;
+        margin-top: 10px;
+        font-size: 0.8rem;
+        padding: 8px 12px;
+    }
+
+    .diagnosa-header {
+        align-items: stretch;
+    }
+}

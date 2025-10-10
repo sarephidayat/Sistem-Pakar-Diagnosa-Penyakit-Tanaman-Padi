@@ -9,13 +9,19 @@
     <link rel="stylesheet" href="{{ asset('css/diagnosa.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://unpkg.com/feather-icons"></script>
 </head>
 
 <body>
     <div class="diagnosa-container">
         <div class="diagnosa-header">
-            <h1><i class="fas fa-leaf"></i> Diagnosis Penyakit Padi</h1>
-            <p>Jawab pertanyaan berikut untuk mendapatkan diagnosis penyakit tanaman padi Anda</p>
+            <div class="header-content">
+                <h1><i class="fas fa-leaf"></i> Diagnosis Penyakit Padi</h1>
+                <p>Jawab pertanyaan berikut untuk mendapatkan diagnosis penyakit tanaman padi Anda</p>
+            </div>
+            <a href="{{ route('home') }}" class="back-button">
+                <i class="fas fa-arrow-left"></i> Kembali
+            </a>
         </div>
 
         <div class="diagnosa-card">
@@ -97,7 +103,9 @@
             </ul>
         </div>
     </div>
-
+    <script>
+        feather.replace();
+    </script>
     <script src="{{ asset('js/diagnosa.js') }}"></script>
 </body>
 

@@ -109,7 +109,7 @@
                 </div>
                 <div class="nav-buttons">
                     <a href="{{ route('Login') }}" class="bg-primary-500 hover:bg-primary-600 text-white font-medium py-2 px-3 rounded-lg shadow-md transition duration-300">Masuk</a>
-                    <a href="{{ route('Regis') }}" class="bg-primary-500 hover:bg-primary-600 text-white font-medium py-2 px-3 rounded-lg shadow-md transition duration-300">Daftar</a>
+                    <a href="{{ route('Login') }}?form=register" class="bg-primary-500 hover:bg-primary-600 text-white font-medium py-2 px-3 rounded-lg shadow-md transition duration-300">Daftar</a>
                 </div>
                 <div class="md:hidden">
                     <button class="mobile-menu-button p-2 rounded-md text-gray-700 hover:text-primary-600 focus:outline-none">
