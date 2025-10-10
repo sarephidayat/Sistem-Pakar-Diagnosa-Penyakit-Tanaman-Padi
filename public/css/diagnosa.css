@@ -1,231 +1,380 @@
+/* diagnosa.css */
+:root {
+    --primary-color: #2e7d32;
+    --primary-light: #4caf50;
+    --primary-dark: #1b5e20;
+    --secondary-color: #ff9800;
+    --text-color: #333;
+    --text-light: #666;
+    --bg-color: #f8f9fa;
+    --card-bg: #ffffff;
+    --border-color: #e0e0e0;
+    --success-color: #4caf50;
+    --warning-color: #ff9800;
+    --error-color: #f44336;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --radius: 12px;
+}
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background-color: #f5f7fa;
-            color: #333;
-            line-height: 1.6;
-            padding: 20px;
-            background: linear-gradient(120deg, #e0f7ff 0%, #f5f5f5 100%);
-            min-height: 100vh;
-        }
-        
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            padding: 30px;
-            position: relative;
-        }
-        
-        h2 {
-            text-align: center;
-            color: #2c3e50;
-            margin-bottom: 25px;
-            padding-bottom: 15px;
-            border-bottom: 2px solid #ecf0f1;
-        }
-        
-        .progress-container {
-            margin-bottom: 25px;
-        }
-        
-        .progress-bar {
-            height: 10px;
-            background-color: #ecf0f1;
-            border-radius: 5px;
-            overflow: hidden;
-        }
-        
-        .progress {
-            height: 100%;
-            background-color: #3498db;
-            width: 0%;
-            transition: width 0.3s ease;
-        }
-        
-        .progress-text {
-            text-align: right;
-            font-size: 14px;
-            color: #7f8c8d;
-            margin-top: 5px;
-        }
-        
-        .question-container {
-            margin-bottom: 25px;
-            min-height: 120px;
-            opacity: 0;
-            transform: translateY(10px);
-            transition: opacity 0.5s ease, transform 0.5s ease;
-        }
-        
-        .question-number {
-            font-weight: bold;
-            color: #3498db;
-            margin-bottom: 5px;
-        }
-        
-        .question-text {
-            font-size: 18px;
-            margin-bottom: 15px;
-            color: #2c3e50;
-        }
-        
-        .options-container {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 10px;
-        }
-        
-        .option-label {
-            display: flex;
-            align-items: center;
-            cursor: pointer;
-            padding: 10px 15px;
-            background-color: #f8f9fa;
-            border-radius: 8px;
-            transition: all 0.2s ease;
-            border: 2px solid transparent;
-        }
-        
-        .option-label:hover {
-            background-color: #e8f4fc;
-            transform: translateY(-2px);
-        }
-        
-        .option-label.selected {
-            background-color: #e1f5fe;
-            border-color: #039be5;
-        }
-        
-        .option-input {
-            margin-right: 8px;
-        }
-        
-        .navigation-buttons {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 30px;
-        }
-        
-        button {
-            padding: 12px 25px;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.2s ease;
-        }
-        
-        .btn-prev {
-            background-color: #e74c3c;
-            color: white;
-        }
-        
-        .btn-prev:hover:not(:disabled) {
-            background-color: #c0392b;
-        }
-        
-        .btn-prev:disabled {
-            background-color: #bdc3c7;
-            cursor: not-allowed;
-        }
-        
-        .btn-next {
-            background-color: #2ecc71;
-            color: white;
-        }
-        
-        .btn-next:hover:not(:disabled) {
-            background-color: #27ae60;
-        }
-        
-        .btn-next:disabled {
-            background-color: #bdc3c7;
-            cursor: not-allowed;
-        }
-        
-        .btn-submit {
-            background-color: #3498db;
-            color: white;
-            display: none;
-        }
-        
-        .btn-submit:hover:not(:disabled) {
-            background-color: #2980b9;
-        }
-        
-        .btn-submit:disabled {
-            background-color: #bdc3c7;
-            cursor: not-allowed;
-        }
-        
-        .question-counter {
-            text-align: center;
-            margin-top: 15px;
-            color: #7f8c8d;
-            font-size: 14px;
-        }
-        
-        .completion-message {
-            text-align: center;
-            margin: 20px 0;
-            padding: 15px;
-            background-color: #e8f6f3;
-            border-radius: 8px;
-            border-left: 4px solid #2ecc71;
-            display: none;
-        }
-        
-        .validation-message {
-            color: #e74c3c;
-            margin-top: 10px;
-            font-size: 14px;
-            display: none;
-        }
-        
-        @media (max-width: 600px) {
-            .container {
-                padding: 20px;
-            }
-            
-            .options-container {
-                flex-direction: column;
-                gap: 10px;
-            }
-            
-            .option-label {
-                width: 100%;
-            }
-            
-            button {
-                padding: 10px 20px;
-            }
-        }
-        
-        .pulse {
-            animation: pulse 1.5s infinite;
-        }
-        
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-        
-        .fade-in {
-            animation: fadeIn 0.5s ease forwards;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-    
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+    color: var(--text-color);
+    line-height: 1.6;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.diagnosa-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.diagnosa-header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.diagnosa-header h1 {
+    color: var(--primary-dark);
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.diagnosa-header h1 i {
+    color: var(--primary-light);
+}
+
+.diagnosa-header p {
+    color: var(--text-light);
+    font-size: 1.1rem;
+}
+
+.diagnosa-card {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 30px;
+    margin-bottom: 30px;
+}
+
+.progress-section {
+    margin-bottom: 30px;
+}
+
+.progress-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.progress-text {
+    color: var(--primary-color);
+}
+
+.question-counter {
+    color: var(--text-light);
+}
+
+.progress-bar-container {
+    width: 100%;
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+    height: 12px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 100%;
+}
+
+.progress {
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        var(--primary-light),
+        var(--primary-color)
+    );
+    border-radius: 10px;
+    width: 0%;
+    transition: width 0.5s ease;
+}
+
+.question-container {
+    margin-bottom: 30px;
+}
+
+.question-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.question-number {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--primary-dark);
+    background: #e8f5e9;
+    padding: 8px 16px;
+    border-radius: 20px;
+}
+
+.question-indicator {
+    font-size: 1.5rem;
+    color: var(--primary-light);
+}
+
+.question-text {
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin-bottom: 25px;
+    color: var(--text-color);
+    line-height: 1.5;
+    padding: 15px;
+    background: #f5f9ff;
+    border-radius: var(--radius);
+    border-left: 4px solid var(--primary-light);
+}
+
+.options-container {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.option-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 20px;
+    background: #f8f9fa;
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex: 1;
+    font-weight: 500;
+}
+
+.option-label:hover {
+    background: #e8f5e9;
+    border-color: var(--primary-light);
+}
+
+.option-input {
+    display: none;
+}
+
+.option-input:checked + .custom-radio {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.option-input:checked + .custom-radio::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 8px;
+    height: 8px;
+    background: white;
+    border-radius: 50%;
+}
+
+.option-input:checked ~ .option-text {
+    color: var(--primary-dark);
+    font-weight: 600;
+}
+
+.custom-radio {
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--border-color);
+    border-radius: 50%;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.option-text {
+    font-size: 1.1rem;
+}
+
+.validation-message {
+    display: none;
+    align-items: center;
+    gap: 10px;
+    color: var(--error-color);
+    font-size: 0.9rem;
+    padding: 12px 15px;
+    background: #ffebee;
+    border-radius: var(--radius);
+    margin-top: 10px;
+}
+
+.completion-message {
+    display: none;
+    text-align: center;
+    padding: 30px;
+    background: #e8f5e9;
+    border-radius: var(--radius);
+    margin-bottom: 20px;
+}
+
+.completion-icon {
+    font-size: 3rem;
+    color: var(--success-color);
+    margin-bottom: 15px;
+}
+
+.completion-message h3 {
+    color: var(--primary-dark);
+    margin-bottom: 10px;
+}
+
+.completion-message p {
+    color: var(--text-light);
+}
+
+.navigation-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.navigation-buttons button {
+    padding: 14px 24px;
+    border: none;
+    border-radius: var(--radius);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-prev {
+    background: #f5f5f5;
+    color: var(--text-light);
+}
+
+.btn-prev:hover:not(:disabled) {
+    background: #e0e0e0;
+    color: var(--text-color);
+}
+
+.btn-next,
+.btn-submit {
+    background: var(--primary-color);
+    color: white;
+}
+
+.btn-next:hover:not(:disabled),
+.btn-submit:hover:not(:disabled) {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-prev:disabled,
+.btn-next:disabled,
+.btn-submit:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.btn-submit {
+    background: var(--secondary-color);
+}
+
+.btn-submit:hover:not(:disabled) {
+    background: #f57c00;
+}
+
+.diagnosa-tips {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 25px;
+}
+
+.diagnosa-tips h3 {
+    color: var(--primary-dark);
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.diagnosa-tips ul {
+    padding-left: 20px;
+}
+
+.diagnosa-tips li {
+    margin-bottom: 10px;
+    color: var(--text-light);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    .diagnosa-header h1 {
+        font-size: 1.8rem;
+    }
+
+    .diagnosa-card {
+        padding: 20px;
+    }
+
+    .options-container {
+        flex-direction: column;
+    }
+
+    .navigation-buttons {
+        flex-direction: column;
+    }
+
+    .question-text {
+        font-size: 1.1rem;
+    }
+}
+
+/* Animation for question transitions */
+.question-container {
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
