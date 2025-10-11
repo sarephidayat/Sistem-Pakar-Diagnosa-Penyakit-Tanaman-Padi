@@ -44,10 +44,10 @@
 
         /* Main container */
         .auth-container {
+            max-height: 90vh;
             display: flex;
             width: 100%;
             max-width: 80vw;
-            max-height: 95vh;
             background: var(--white);
             border-radius: var(--radius);
             box-shadow: var(--shadow);
@@ -59,64 +59,16 @@
         /* Illustration side */
         .illustration-side {
             flex: 1;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 2rem;
+            background-image: url(https://assets.pikiran-rakyat.com/photo/2025/05/24/2826405091.jpg);
+            background-size: cover;
+            background-position: center;
             position: relative;
             overflow: hidden;
         }
 
-        .illustration-content {
-            max-width: 100%;
-            text-align: center;
-            color: white;
-            z-index: 2;
-        }
-
-        .illustration-title {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 0.8rem;
-        }
-
-        .illustration-subtitle {
-            font-size: 0.9rem;
-            font-weight: 300;
-            margin-bottom: 1.5rem;
-            opacity: 0.9;
-            line-height: 1.5;
-        }
-
-        .illustration-image {
-            max-width: 80%;
-            margin: 1.5rem auto;
-            filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2));
-        }
-
-        .illustration-decoration {
-            position: absolute;
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            top: -40px;
-            left: -40px;
-        }
-
-        .illustration-decoration:nth-child(2) {
-            width: 120px;
-            height: 120px;
-            bottom: -40px;
-            right: -40px;
-            top: auto;
-            left: auto;
-        }
-
         /* Form side */
         .form-side {
+            overflow-y: scroll;
             flex: 1;
             display: flex;
             flex-direction: column;
@@ -330,8 +282,6 @@
         @media (max-width: 900px) {
             .auth-container {
                 flex-direction: column;
-                max-width: 90vw;
-                max-height: 90vh;
             }
 
             .illustration-side {
@@ -379,34 +329,10 @@
     <div class="auth-container">
         <!-- Illustration side -->
         <div class="illustration-side">
-            <div class="illustration-decoration"></div>
-            <div class="illustration-decoration"></div>
-
-            <div class="illustration-content">
-                <h1 class="illustration-title">OryzaDoc</h1>
-                <p class="illustration-subtitle">Diagnosis Penyakit Padi dengan Teknologi AI untuk Meningkatkan Hasil Panen</p>
-
-                <div class="illustration-image">
-                    <!-- Placeholder for illustration - can be replaced with actual image -->
-                    <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
-                        <defs>
-                            <linearGradient id="plantGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                                <stop offset="0%" stop-color="#86efac" />
-                                <stop offset="100%" stop-color="#10b981" />
-                            </linearGradient>
-                        </defs>
-                        <rect width="400" height="300" fill="url(#plantGradient)" opacity="0.2" rx="10" />
-                        <path d="M200,50 L220,250 L180,250 Z" fill="#065f46" opacity="0.7" />
-                        <path d="M200,70 L240,200 L160,200 Z" fill="#059669" opacity="0.8" />
-                        <path d="M200,90 L260,150 L140,150 Z" fill="#10b981" opacity="0.9" />
-                        <path d="M200,110 L270,120 L130,120 Z" fill="#34d399" opacity="1" />
-                        <circle cx="200" cy="50" r="15" fill="#fef3c7" opacity="0.9" />
-                        <path d="M150,250 L250,250 L250,270 L150,270 Z" fill="#92400e" opacity="0.8" />
-                        <path d="M180,270 L220,270 L220,290 L180,290 Z" fill="#78350f" opacity="0.9" />
-                    </svg>
-                </div>
-
-                <p class="illustration-subtitle">Bergabunglah dengan petani modern yang menggunakan teknologi untuk meningkatkan produktivitas</p>
+            <div class="kembali">
+                <a href="{{ route('home') }}" style="font-size: 0.8rem; text-decoration: none; color: white; font-weight: bold; position: absolute; top: 20px; left: 20px; background-color: rgba(0, 0, 0, 0.5); padding: 10px 10px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);">
+                    &larr; Kembali ke Beranda
+                </a>
             </div>
         </div>
 
