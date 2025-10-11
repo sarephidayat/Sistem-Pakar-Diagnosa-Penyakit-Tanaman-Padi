@@ -2,8 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\DosenController;
-use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\Admin\DashboardController;
 
 // halaman utama
 Route::get('/', function () {
@@ -26,11 +25,17 @@ Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
 Route::post('/login', [AuthController::class, 'authenticate']);
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
+
+
+
+
+// ===============================ADMIN CONTROLLER================================
 // hanya bisa diakses kalau login
 Route::get('/dashboard', [DashboardController::class, 'index'])
-    ->middleware('cekLogin')
+    // ->middleware('cekLogin')
     ->name('dashboard');
 
+<<<<<<< HEAD
 
 
 // ===============================DOSEN CONTROLLER================================
@@ -52,6 +57,8 @@ Route::get('/dosen/delete/{nidn}', [DosenController::class, 'destroy']);
 
 
 // ===============================DIAGNOSA CONTROLLER================================
+=======
+>>>>>>> 74fcb67 (admin)
 Route::get('/diagnosa', [App\Http\Controllers\DiagnosaController::class, 'index'])
     // ->middleware(['auth', 'verified'])
     ->name('diagnosa');
