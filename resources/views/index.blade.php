@@ -292,6 +292,15 @@
                         Buka OryzaDoc di ponsel cerdas, tablet, atau komputer Anda.
                     </p>
                 </div>
+                <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="bg-primary-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-primary-600 font-bold text-2xl">2</span>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-2">Pilih gejala</h3>
+                    <p class="text-gray-600">
+                        pilih gejala yang sesuai demngan kondisi tanaman padi anda.
+                    </p>
+                </div>
                 <div class="text-center" data-aos="fade-up" data-aos-delay="200">
                     <div class="bg-primary-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
                         <span class="text-primary-600 font-bold text-2xl">3</span>
@@ -299,6 +308,7 @@
                     <h3 class="text-lg font-semibold text-gray-800 mb-2">Diagnosa Pintar</h3>
                     <p class="text-gray-600">
                         Sistem kami menganalisis gejala yang ada dan menentukan diagnosa penyakit dengan sistem pakar.
+                        Sistem kami akan menganalisis data gejala menggunakan teknologi kecerdaan buatan.
                     </p>
                 </div>
                 <div class="text-center" data-aos="fade-up" data-aos-delay="300">
@@ -307,7 +317,7 @@
                     </div>
                     <h3 class="text-lg font-semibold text-gray-800 mb-2">Dapatkan Hasil</h3>
                     <p class="text-gray-600">
-                        Terima diagnosis instan dan rekomendasi pengobatan.
+                        Hasil diagnosa serta rekomendasi perawatan akan muncul secara otomatis.
                     </p>
                 </div>
             </div>
