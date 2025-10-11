@@ -13,7 +13,8 @@ class MasterGejalaController extends Controller
      */
     public function index()
     {
-        //
+        $gejalas = MasterGejala::all();
+        return view('admin/gejala.index', compact('gejalas'));
     }
 
     /**
@@ -43,17 +44,37 @@ class MasterGejalaController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(MasterGejala $masterGejala)
+    public function edit($id)
     {
-        //
+        // Cari data berdasarkan id_gejala
+        $gejala = MasterGejala::findOrFail($id);
+
+        // Tampilkan ke view edit
+        return view('admin.gejala.edit', compact('gejala'));
     }
 
     /**
-     * Update the specified resource in storage.
+     * Proses update data gejala.
      */
-    public function update(Request $request, MasterGejala $masterGejala)
+    public function update(Request $request, $id)
     {
-        //
+        // Validasi input
+        $request->validate([
+            'nama_gejala' => 'required|string|max:255',
+            'pertanyaan' => 'required|string|max:255',
+        ]);
+
+        // Cari data gejala
+        $gejala = MasterGejala::findOrFail($id);
+
+        // Update data
+        $gejala->update([
+            'nama_gejala' => $request->nama_gejala,
+            'pertanyaan' => $request->pertanyaan,
+        ]);
+
+        // Redirect ke halaman index dengan pesan sukses
+        return redirect()->route('gejala.index')->with('success', 'Data gejala berhasil diperbarui!');
     }
 
     /**

@@ -36,8 +36,8 @@
           <i class="fas fa-stethoscope me-2"></i> <span>Gejala</span>
         </a>
         <ul class="dropdown-menu">
-          <li><a class="nav-link" href="{{ url('/user') }}">List</a></li>
-          <li><a class="nav-link" href="{{ url('/user/create') }}">Tambah Data</a></li>
+          <li><a class="nav-link" href="{{ url('/gejala') }}">List</a></li>
+          <li><a class="nav-link" href="{{ url('/gejala/create') }}">Tambah Data</a></li>
         </ul>
       </li>           
 
@@ -47,7 +47,7 @@
           <i class="fas fa-diagnoses me-2"></i> <span>Penyakit</span>
         </a>
         <ul class="dropdown-menu">
-          <li><a class="nav-link" href="{{ url('/user') }}">List</a></li>
+          <li><a class="nav-link" href="{{ url('/penyakit') }}">List</a></li>
           <li><a class="nav-link" href="{{ url('/user/create') }}">Tambah Data</a></li>
         </ul>
       </li>           

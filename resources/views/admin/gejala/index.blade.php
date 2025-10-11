@@ -1,4 +1,4 @@
-@extends('layout.main')
+@extends('admin.layout.main')
 
 @section('title', 'List Dosen')
 
@@ -16,31 +16,35 @@
             <table class="table table-hover table-striped w-100" id="table-1">
               <thead>
                 <tr>
-                  <th>NIDN</th>
-                  <th>Nama Dosen</th>
-                  <th>Jenis Kelamin</th>
-                  <th>Alamat</th>
+                  <th>No</th>
+                  <th>Kode Gejala</th>
+                  <th>Nama Gejala</th>
+                  <th>Pertanyaan</th>
                   <th style="width: 150px">Aksi</th>
                 </tr>
               </thead>
               <tbody>
-                @foreach($dosen as $d)
-                <tr>
-                  <td>{{ $d->nidn }}</td>
-                  <td>{{ $d->nama_dosen }}</td>
-                  <td>{{ $d->jenkel_dosen }}</td>
-                  <td>{{ $d->alamat_dosen }}</td>
-                  <td>
-                    <a href="{{ url('/dosen/edit/'.$d->nidn) }}" class="btn btn-sm btn-info">
-                      <i class="fas fa-edit fa-fw"></i>
-                    </a>
-                    <a href="{{ url('/dosen/delete/'.$d->nidn) }}" class="btn btn-sm btn-danger"
-                      onclick="return confirm('Yakin ingin menghapus data ini?')">
-                      <i class="fas fa-trash fa-fw"></i>
-                    </a>
-                  </td>
-                </tr>
-                @endforeach
+                  @foreach($gejalas as $index => $gejala)
+                      <tr>
+                          <td>{{ $gejala->id_gejala }}</td>
+                          <td>{{ $gejala->kode_gejala }}</td>
+                          <td>{{ $gejala->nama_gejala }}</td>
+                          <td>{{ $gejala->pertanyaan }}</td>
+                          <td>
+                              <a href="{{ route('gejala.edit', $gejala->id_gejala) }}" class="btn btn-warning btn-sm" title="Edit">
+                                  <i class="bi bi-pencil-square"></i>
+                              </a>
+
+                              <form action="{{ route('gejala.destroy', $gejala->id_gejala) }}" method="POST" style="display:inline;">
+                                  @csrf
+                                  @method('DELETE')
+                                  <button class="btn btn-danger btn-sm" onclick="return confirm('Yakin hapus data ini?')" title="Hapus">
+                                      <i class="bi bi-trash"></i>
+                                  </button>
+                              </form>
+                          </td>
+                      </tr>
+                  @endforeach
               </tbody>
             </table>
           </div>

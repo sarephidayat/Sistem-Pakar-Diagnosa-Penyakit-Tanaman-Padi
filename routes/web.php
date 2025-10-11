@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\MasterGejalaController;
 
 // halaman utama
 Route::get('/', function () {
@@ -30,35 +31,34 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 
 // ===============================ADMIN CONTROLLER================================
-// hanya bisa diakses kalau login
+// dashboard
 Route::get('/dashboard', [DashboardController::class, 'index'])
     // ->middleware('cekLogin')
     ->name('dashboard');
 
-<<<<<<< HEAD
+// Gejala 
+Route::prefix('gejala')->name('gejala.')->group(function () {
+    // Tampilkan semua gejala
+    Route::get('/', [MasterGejalaController::class, 'index'])->name('index');
+
+    // Form tambah gejala
+    Route::get('/create', [MasterGejalaController::class, 'create'])->name('create');
+
+    // Simpan gejala baru
+    Route::post('/', [MasterGejalaController::class, 'store'])->name('store');
+
+    // Form edit gejala
+    Route::get('/edit/{id}', [MasterGejalaController::class, 'edit'])->name('edit');
+
+    // Update gejala
+    Route::put('/gejala/{id}', [MasterGejalaController::class, 'update'])->name('update');
+
+    // Hapus gejala
+    Route::delete('/{id}', [MasterGejalaController::class, 'destroy'])->name('destroy');
+});
 
 
-// ===============================DOSEN CONTROLLER================================
-// daftar dosen
-Route::get('/dosen', [DosenController::class, 'index'])
-    ->middleware('cekLogin')
-    ->name('dosen');
 
-// tambah dosen
-Route::get('/dosen/create', [DosenController::class, 'create']);
-Route::post('/dosen/store', [DosenController::class, 'store']);
-
-// edit dosen
-Route::get('/dosen/edit/{nidn}', [DosenController::class, 'edit']);
-Route::post('/dosen/update/{nidn}', [DosenController::class, 'update']);
-
-// hapus dosen
-Route::get('/dosen/delete/{nidn}', [DosenController::class, 'destroy']);
-
-
-// ===============================DIAGNOSA CONTROLLER================================
-=======
->>>>>>> 74fcb67 (admin)
 Route::get('/diagnosa', [App\Http\Controllers\DiagnosaController::class, 'index'])
     // ->middleware(['auth', 'verified'])
     ->name('diagnosa');
