@@ -22,7 +22,7 @@
       <!-- Menu Dosen -->
       <li class="dropdown">
         <a href="#" class="nav-link has-dropdown" data-toggle="dropdown">
-          <i class="fas fa-columns"></i> <span>Dosen</span>
+          <i class="fas fa-notes-medical me-2"></i> <span>Detail Gejala</span>
         </a>
         <ul class="dropdown-menu">
           <li><a class="nav-link" href="{{ url('/dosen') }}">List</a></li>
@@ -33,7 +33,29 @@
       <!-- Menu User -->
       <li class="dropdown">
         <a href="#" class="nav-link has-dropdown" data-toggle="dropdown">
-          <i class="fas fa-users"></i> <span>User</span>
+          <i class="fas fa-stethoscope me-2"></i> <span>Gejala</span>
+        </a>
+        <ul class="dropdown-menu">
+          <li><a class="nav-link" href="{{ url('/gejala') }}">List</a></li>
+          <li><a class="nav-link" href="{{ url('/gejala/create') }}">Tambah Data</a></li>
+        </ul>
+      </li>           
+
+      <!-- Menu User -->
+      <li class="dropdown">
+        <a href="#" class="nav-link has-dropdown" data-toggle="dropdown">
+          <i class="fas fa-diagnoses me-2"></i> <span>Penyakit</span>
+        </a>
+        <ul class="dropdown-menu">
+          <li><a class="nav-link" href="{{ url('/penyakit') }}">List</a></li>
+          <li><a class="nav-link" href="{{ url('/user/create') }}">Tambah Data</a></li>
+        </ul>
+      </li>           
+
+      <!-- Menu User -->
+      <li class="dropdown">
+        <a href="#" class="nav-link has-dropdown" data-toggle="dropdown">
+          <i class="fas fa-project-diagram me-2"></i> <span>Rule</span>
         </a>
         <ul class="dropdown-menu">
           <li><a class="nav-link" href="{{ url('/user') }}">List</a></li>
@@ -41,6 +63,13 @@
         </ul>
       </li>           
 
+      <!-- Bagian Profile -->
+      <li class="menu-header">Account</li>
+      <li>
+        <a class="nav-link" href="{{ url('/profile') }}">
+          <i class="fas fa-user-circle me-2"></i> <span>Profile</span>
+        </a>
+      </li>
     </ul>
   </aside>
 </div>

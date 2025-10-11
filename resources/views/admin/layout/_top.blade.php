@@ -19,7 +19,7 @@
 <link rel="stylesheet" href="{{ asset('modules/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css') }}">
 <link rel="stylesheet" href="{{ asset('modules/datatables/Select-1.2.4/css/select.bootstrap4.min.css') }}">
 <link rel="stylesheet" href="{{ asset('modules/izitoast/css/iziToast.min.css') }}">
-
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 <!-- Template CSS -->
 <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 <link rel="stylesheet" href="{{ asset('css/components.css') }}">
@@ -31,10 +31,10 @@
     <div class="main-wrapper main-wrapper-1">
 
       {{-- Header --}}
-      @include('layout._header')
+      @include('admin.layout._header')
 
       {{-- Sidebar --}}
-      @include('layout._sidenav')
+      @include('admin.layout._sidenav')
 
       <!-- Main Content -->
       <div class="main-content">

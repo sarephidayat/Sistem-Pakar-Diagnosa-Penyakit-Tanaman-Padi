@@ -17,6 +17,7 @@ return new class extends Migration {
             $table->unsignedBigInteger('id_status'); // FK ke master_gejala
             $table->decimal('bobot', 3, 2)->nullable(); // opsional: tingkat kepastian
             $table->timestamps();
+            $table->integer('deleted')->default(0);
 
             $table->foreign('id_rule')->references('id_rule')->on('master_rule')->onDelete('cascade');
             $table->foreign('id_gejala')->references('id_gejala')->on('master_gejala')->onDelete('cascade');
