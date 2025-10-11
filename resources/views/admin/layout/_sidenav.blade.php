@@ -48,7 +48,7 @@
         </a>
         <ul class="dropdown-menu">
           <li><a class="nav-link" href="{{ url('/penyakit') }}">List</a></li>
-          <li><a class="nav-link" href="{{ url('/user/create') }}">Tambah Data</a></li>
+          <li><a class="nav-link" href="{{ url('/penyakit/create') }}">Tambah Data</a></li>
         </ul>
       </li>           
 
@@ -58,8 +58,8 @@
           <i class="fas fa-project-diagram me-2"></i> <span>Rule</span>
         </a>
         <ul class="dropdown-menu">
-          <li><a class="nav-link" href="{{ url('/user') }}">List</a></li>
-          <li><a class="nav-link" href="{{ url('/user/create') }}">Tambah Data</a></li>
+          <li><a class="nav-link" href="{{ url('/rule') }}">List</a></li>
+          <li><a class="nav-link" href="{{ url('/rule/create') }}">Tambah Data</a></li>
         </ul>
       </li>           
 

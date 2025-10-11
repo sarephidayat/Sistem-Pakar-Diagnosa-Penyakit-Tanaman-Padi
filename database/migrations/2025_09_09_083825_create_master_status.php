@@ -14,7 +14,8 @@ return new class extends Migration {
             $table->id('id_status');
             $table->string('nama_status');
             $table->timestamps();
-            $table->integer('deleted')->default(0);
+            $table->integer('deleted')->nullable();
+
         });
     }
 

@@ -16,7 +16,8 @@ return new class extends Migration {
             $table->string('nama_gejala');
             $table->string('pertanyaan');
             $table->timestamps();
-            $table->integer('deleted')->default(0);
+            $table->integer('deleted')->nullable();
+
         });
     }
 

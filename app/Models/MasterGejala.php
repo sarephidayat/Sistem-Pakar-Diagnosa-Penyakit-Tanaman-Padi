@@ -8,5 +8,5 @@ class MasterGejala extends Model
 {
     protected $table = 'master_gejala';
     protected $primaryKey = 'id_gejala';
-    protected $fillable = ['kode_gejala', 'nama_gejala'];
+    protected $fillable = ['kode_gejala', 'nama_gejala', 'pertanyaan', 'deleted'];
 }

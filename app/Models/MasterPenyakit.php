@@ -8,7 +8,7 @@ class MasterPenyakit extends Model
 {
     protected $table = 'master_penyakit';
     protected $primaryKey = 'id_penyakit';
-    protected $fillable = ['kode_penyakit', 'nama_penyakit'];
+    protected $fillable = ['kode_penyakit', 'nama_penyakit', 'solusi', 'deleted'];
 
     // relasi ke rule
     public function rules()

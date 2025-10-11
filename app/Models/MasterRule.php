@@ -13,7 +13,12 @@ class MasterRule extends Model
     // relasi ke penyakit
     public function penyakit()
     {
-        return $this->belongsTo(MasterPenyakit::class, 'id_penyakit', 'id_penyakit');
+        return $this->belongsTo(MasterPenyakit::class, 'id_penyakit');
+    }
+
+    public function gejalas()
+    {
+        return $this->belongsToMany(MasterGejala::class, 'rule_gejala', 'id_rule', 'id_gejala');
     }
 
     // relasi ke detail rule (gejala2 yang terkait)

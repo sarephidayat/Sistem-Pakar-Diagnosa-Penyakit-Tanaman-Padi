@@ -5,8 +5,8 @@
 @section('content')
 <section class="section">
   <div class="section-header d-flex justify-content-between">
-    <h1>List Dosen</h1>
-    <a href="{{ url('/dosen/create') }}" class="btn btn-primary">Tambah Data</a>
+    <h1>List Gejala</h1>
+    <a href="{{ url('/gejala/create') }}" class="btn btn-primary">Tambah Data</a>
   </div>
   <div class="row">
     <div class="col-12">
@@ -37,11 +37,12 @@
 
                               <form action="{{ route('gejala.destroy', $gejala->id_gejala) }}" method="POST" style="display:inline;">
                                   @csrf
-                                  @method('DELETE')
+                                  @method('PUT')
                                   <button class="btn btn-danger btn-sm" onclick="return confirm('Yakin hapus data ini?')" title="Hapus">
                                       <i class="bi bi-trash"></i>
                                   </button>
                               </form>
+
                           </td>
                       </tr>
                   @endforeach
