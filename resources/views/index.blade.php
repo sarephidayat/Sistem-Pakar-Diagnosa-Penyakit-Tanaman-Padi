@@ -75,6 +75,7 @@
             color: #6ba31b;
             border-bottom: 3px solid #6ba31b;
         }
+
         .nav-buttons {
             display: flex;
             align-items: center;
@@ -98,7 +99,7 @@
                 </div>
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-center space-x-4">
-                        <a href="#home" class="text-primary-600 hover:text-primary-800 px-3 py-2 text-sm font-medium">Beranda</a>
+                        <a href="#home" class="text-gray-600 hover:text-primary-800 px-3 py-2 text-sm font-medium">Beranda</a>
                         <a href="#about" class="text-gray-600 hover:text-primary-600 px-3 py-2 text-sm font-medium">Tentang</a>
                         <a href="#features" class="text-gray-600 hover:text-primary-600 px-3 py-2 text-sm font-medium">Fitur</a>
                         <a href="#how-it-works" class="text-gray-600 hover:text-primary-600 px-3 py-2 text-sm font-medium">Cara Kerja</a>
@@ -107,8 +108,8 @@
                     </div>
                 </div>
                 <div class="nav-buttons">
-                    <a href="{{ route('Login') }}" class="text-gray-600 hover:text-primary-600 px-3 py-2 text-sm font-medium">Masuk</a>
-                    <a href="{{ route('Regis') }}" class="text-gray-600 hover:text-primary-600 px-3 py-2 text-sm font-medium">Daftar</a>
+                    <a href="{{ route('Login') }}" class="bg-primary-500 hover:bg-primary-600 text-white font-medium py-2 px-3 rounded-lg shadow-md transition duration-300">Masuk</a>
+                    <a href="{{ route('Login') }}?form=register" class="bg-primary-500 hover:bg-primary-600 text-white font-medium py-2 px-3 rounded-lg shadow-md transition duration-300">Daftar</a>
                 </div>
                 <div class="md:hidden">
                     <button class="mobile-menu-button p-2 rounded-md text-gray-700 hover:text-primary-600 focus:outline-none">
@@ -219,7 +220,7 @@
                     </div>
                     <h3 class="text-xl font-semibold text-gray-800 mb-3">Diagnosis Akurat</h3>
                     <p class="text-gray-600">
-                        Model AI kami telah dilatih dengan ribuan gambar tanaman padi untuk memberikan identifikasi penyakit yang sangat akurat.
+                        Sistem Pakar kami telah dilatih dengan ribuan gejala tanaman padi untuk memberikan identifikasi penyakit yang sangat akurat.
                     </p>
                 </div>
                 <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300" data-aos="fade-up" data-aos-delay="100">
@@ -281,7 +282,7 @@
                     Mendapatkan diagnosis untuk tanaman padi Anda sederhana dan mudah.
                 </p>
             </div>
-            <div class="grid md:grid-cols-4 gap-8">
+            <div class="grid md:grid-cols-3 gap-8 justify-items-center align-items-center">
                 <div class="text-center" data-aos="fade-up">
                     <div class="bg-primary-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
                         <span class="text-primary-600 font-bold text-2xl">1</span>
@@ -304,8 +305,9 @@
                     <div class="bg-primary-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
                         <span class="text-primary-600 font-bold text-2xl">3</span>
                     </div>
-                    <h3 class="text-lg font-semibold text-gray-800 mb-2">Analisis AI</h3>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-2">Diagnosa Pintar</h3>
                     <p class="text-gray-600">
+                        Sistem kami menganalisis gejala yang ada dan menentukan diagnosa penyakit dengan sistem pakar.
                         Sistem kami akan menganalisis data gejala menggunakan teknologi kecerdaan buatan.
                     </p>
                 </div>
@@ -342,7 +344,7 @@
                     <div class="flex items-center mb-4">
                         <img src="http://static.photos/people/100x100/1" alt="Pengguna" class="w-12 h-12 rounded-full mr-4">
                         <div>
-                            <h4 class="font-semibold text-gray-800">Arif Santoso</h4>
+                            <h4 class="font-semibold text-gray-800">Hanya Nanta</h4>
                             <p class="text-gray-500 text-sm">Petani Padi, Jawa Tengah</p>
                         </div>
                     </div>
@@ -361,7 +363,7 @@
                     <div class="flex items-center mb-4">
                         <img src="http://static.photos/people/100x100/2" alt="Pengguna" class="w-12 h-12 rounded-full mr-4">
                         <div>
-                            <h4 class="font-semibold text-gray-800">Siti Nuraini</h4>
+                            <h4 class="font-semibold text-gray-800">Huda Masjid</h4>
                             <p class="text-gray-500 text-sm">Pemilik Lahan, Jawa Barat</p>
                         </div>
                     </div>
@@ -380,7 +382,7 @@
                     <div class="flex items-center mb-4">
                         <img src="http://static.photos/people/100x100/3" alt="Pengguna" class="w-12 h-12 rounded-full mr-4">
                         <div>
-                            <h4 class="font-semibold text-gray-800">Agus Buntung</h4>
+                            <h4 class="font-semibold text-gray-800">Siuunaldo wati</h4>
                             <p class="text-gray-500 text-sm">Penyuluh Pertanian</p>
                         </div>
                     </div>
@@ -409,13 +411,13 @@
                     Orang-orang berdedikasi di balik OryzaDoc.
                 </p>
             </div>
-            <div class="grid md:grid-cols-3 gap-8">
+            <div class="grid grid-cols-4 gap-5 mb-20">
                 <div class="text-center" data-aos="fade-up">
-                    <img src="http://static.photos/people/200x200/4" alt="Anggota Tim" class="w-32 h-32 rounded-full mx-auto mb-4 shadow-md">
-                    <h3 class="text-xl font-semibold text-gray-800 mb-1">Dr. Anwar Ibrahim</h3>
+                    <img src="{{ asset('img/raihan.png') }}" alt="Anggota Tim" class="w-32 h-32 rounded-full mx-auto mb-4 shadow-md object-cover">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-1">Dr. Raihan Firdaus</h3>
                     <p class="text-primary-600 font-medium mb-3">Pendiri & CEO</p>
                     <p class="text-gray-600">
-                        Ilmuwan pertanian dengan 15 tahun pengalaman dalam patologi padi dan manajemen penyakit.
+                        Ilmuwan pertanian dengan 40 tahun pengalaman dalam patologi padi dan manajemen penyakit.
                     </p>
                     <div class="mt-4 flex justify-center space-x-3">
                         <a href="#" class="text-gray-500 hover:text-primary-500">
@@ -427,11 +429,11 @@
                     </div>
                 </div>
                 <div class="text-center" data-aos="fade-up" data-aos-delay="100">
-                    <img src="http://static.photos/people/200x200/5" alt="Anggota Tim" class="w-32 h-32 rounded-full mx-auto mb-4 shadow-md">
-                    <h3 class="text-xl font-semibold text-gray-800 mb-1">Sarah Wijaya</h3>
-                    <p class="text-primary-600 font-medium mb-3">Spesialis AI</p>
+                    <img src="{{ asset('img/sarep.jpg') }}" alt="Anggota Tim" class="w-32 h-32 rounded-full mx-auto mb-4 shadow-md object-cover">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-1">Dr. Muhammad Syarifudin</h3>
+                    <p class="text-primary-600 font-medium mb-3">Pakar Padi</p>
                     <p class="text-gray-600">
-                        Ahli pembelajaran mesin yang berfokus pada aplikasi computer vision untuk pertanian.
+                        Ahli pakar yang berfokus pada penelitian dan pengembangan varietas padi unggul.
                     </p>
                     <div class="mt-4 flex justify-center space-x-3">
                         <a href="#" class="text-gray-500 hover:text-primary-500">
@@ -443,11 +445,77 @@
                     </div>
                 </div>
                 <div class="text-center" data-aos="fade-up" data-aos-delay="200">
-                    <img src="http://static.photos/people/200x200/6" alt="Anggota Tim" class="w-32 h-32 rounded-full mx-auto mb-4 shadow-md">
-                    <h3 class="text-xl font-semibold text-gray-800 mb-1">Rudi Hartono</h3>
+                    <img src="{{ asset('img/salsa.jpg') }}" alt="Anggota Tim" class="w-32 h-32 rounded-full mx-auto mb-4 shadow-md object-cover">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-1">Dr. Salsa</h3>
                     <p class="text-primary-600 font-medium mb-3">Insinyur Pertanian</p>
                     <p class="text-gray-600">
                         Merancang protokol pengujian lapangan dan memastikan solusi kami bekerja dalam kondisi dunia nyata.
+                    </p>
+                    <div class="mt-4 flex justify-center space-x-3">
+                        <a href="#" class="text-gray-500 hover:text-primary-500">
+                            <i data-feather="linkedin" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="text-gray-500 hover:text-primary-500">
+                            <i data-feather="twitter" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="text-center" data-aos="fade-up">
+                    <img src="{{ asset('img/wati.jpg') }}" alt="Anggota Tim" class="w-32 h-32 rounded-full mx-auto mb-4 shadow-md object-cover">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-1">Dr. Rahmawati</h3>
+                    <p class="text-primary-600 font-medium mb-3">Front End Developer</p>
+                    <p class="text-gray-600">
+                        Bertanggung jawab atas desain antarmuka pengguna dan pengalaman pengguna platform OryzaDoc.
+                    </p>
+                    <div class="mt-4 flex justify-center space-x-3">
+                        <a href="#" class="text-gray-500 hover:text-primary-500">
+                            <i data-feather="linkedin" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="text-gray-500 hover:text-primary-500">
+                            <i data-feather="twitter" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="grid justify-center grid-cols-3 gap-5">
+                <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+                    <img src="{{ asset('img/sevi.jpg') }}" alt="Anggota Tim" class="w-32 h-32 rounded-full mx-auto mb-4 shadow-md object-cover">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-1">Dr. Sevi</h3>
+                    <p class="text-primary-600 font-medium mb-3">Back End Developer</p>
+                    <p class="text-gray-600">
+                        Mengembangkan dan memelihara infrastruktur server dan basis data untuk memastikan kinerja platform yang optimal.
+                    </p>
+                    <div class="mt-4 flex justify-center space-x-3">
+                        <a href="#" class="text-gray-500 hover:text-primary-500">
+                            <i data-feather="linkedin" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="text-gray-500 hover:text-primary-500">
+                            <i data-feather="github" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+                    <img src="{{ asset('img/silmi.jpg') }}" alt="Anggota Tim" class="w-32 h-32 rounded-full mx-auto mb-4 shadow-md object-cover">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-1">Dr. Silmi</h3>
+                    <p class="text-primary-600 font-medium mb-3">UI/UX Designer</p>
+                    <p class="text-gray-600">
+                        Merancang antarmuka yang intuitif dan menarik untuk memastikan pengalaman pengguna yang mulus di seluruh platform.
+                    </p>
+                    <div class="mt-4 flex justify-center space-x-3">
+                        <a href="#" class="text-gray-500 hover:text-primary-500">
+                            <i data-feather="linkedin" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="text-gray-500 hover:text-primary-500">
+                            <i data-feather="twitter" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+                    <img src="{{ asset('img/yanti.jpg') }}" alt="Anggota Tim" class="w-32 h-32 rounded-full mx-auto mb-4 shadow-md object-cover">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-1">Dr. Daryanti</h3>
+                    <p class="text-primary-600 font-medium mb-3">Pakar Tanah</p>
+                    <p class="text-gray-600">
+                        Spesialis dalam ilmu tanah, memberikan wawasan tentang bagaimana kondisi tanah mempengaruhi kesehatan tanaman padi.
                     </p>
                     <div class="mt-4 flex justify-center space-x-3">
                         <a href="#" class="text-gray-500 hover:text-primary-500">
@@ -470,7 +538,7 @@
                 Bergabunglah dengan ribuan petani yang melindungi tanaman mereka dengan OryzaDoc.
             </p>
             <div class="flex flex-wrap justify-center gap-4" data-aos="fade-up" data-aos-delay="200">
-                <a href="{{ route('diagnosa') }}"  class="bg-white text-primary-600 hover:bg-gray-100 font-medium py-3 px-8 rounded-lg shadow-md transition duration-300">
+                <a href="{{ route('diagnosa') }}" class="bg-white text-primary-600 hover:bg-gray-100 font-medium py-3 px-8 rounded-lg shadow-md transition duration-300">
                     Mulai Diagnosis
                 </a>
                 <a href="#" class="border border-white text-white hover:bg-primary-700 font-medium py-3 px-8 rounded-lg transition duration-300">

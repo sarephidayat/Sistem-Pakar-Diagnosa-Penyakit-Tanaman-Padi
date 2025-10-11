@@ -17,8 +17,8 @@ Route::get('/registrasiuser', function () {
     return view('Regis');
 })->name('Regis');
 
-Route::get('/Home', function () {
-    return view('welcome');
+Route::get('/', function () {
+    return view('index');
 })->name('home');
 
 // login routes
@@ -51,6 +51,7 @@ Route::post('/dosen/update/{nidn}', [DosenController::class, 'update']);
 Route::get('/dosen/delete/{nidn}', [DosenController::class, 'destroy']);
 
 
+// ===============================DIAGNOSA CONTROLLER================================
 Route::get('/diagnosa', [App\Http\Controllers\DiagnosaController::class, 'index'])
     // ->middleware(['auth', 'verified'])
     ->name('diagnosa');
