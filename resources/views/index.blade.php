@@ -485,11 +485,11 @@
                     </div>
                 </div>
                 <div class="text-center" data-aos="fade-up" data-aos-delay="200">
-                    <img src="{{ asset('img/salsa.jpg') }}" alt="Anggota Tim" class="w-32 h-32 rounded-full mx-auto mb-4 shadow-md object-cover">
-                    <h3 class="text-xl font-semibold text-gray-800 mb-1">Dr. Salsa</h3>
-                    <p class="text-primary-600 font-medium mb-3">Insinyur Pertanian</p>
+                    <img src="{{ asset('img/silmi.jpg') }}" alt="Anggota Tim" class="w-32 h-32 rounded-full mx-auto mb-4 shadow-md object-cover">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-1">Dr. Silmi</h3>
+                    <p class="text-primary-600 font-medium mb-3">UI/UX Designer</p>
                     <p class="text-gray-600">
-                        Merancang protokol pengujian lapangan dan memastikan solusi kami bekerja dalam kondisi dunia nyata.
+                        Merancang antarmuka yang intuitif dan menarik untuk memastikan pengalaman pengguna yang mulus di seluruh platform.
                     </p>
                     <div class="mt-4 flex justify-center space-x-3">
                         <a href="#" class="text-gray-500 hover:text-primary-500">
@@ -501,11 +501,11 @@
                     </div>
                 </div>
                 <div class="text-center" data-aos="fade-up" data-aos-delay="200">
-                    <img src="{{ asset('img/salsa.jpg') }}" alt="Anggota Tim" class="w-32 h-32 rounded-full mx-auto mb-4 shadow-md object-cover">
-                    <h3 class="text-xl font-semibold text-gray-800 mb-1">Dr. Salsa</h3>
-                    <p class="text-primary-600 font-medium mb-3">Insinyur Pertanian</p>
+                    <img src="{{ asset('img/yanti.jpg') }}" alt="Anggota Tim" class="w-32 h-32 rounded-full mx-auto mb-4 shadow-md object-cover">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-1">Dr. Daryanti</h3>
+                    <p class="text-primary-600 font-medium mb-3">Pakar Tanah</p>
                     <p class="text-gray-600">
-                        Merancang protokol pengujian lapangan dan memastikan solusi kami bekerja dalam kondisi dunia nyata.
+                        Spesialis dalam ilmu tanah, memberikan wawasan tentang bagaimana kondisi tanah mempengaruhi kesehatan tanaman padi.
                     </p>
                     <div class="mt-4 flex justify-center space-x-3">
                         <a href="#" class="text-gray-500 hover:text-primary-500">
