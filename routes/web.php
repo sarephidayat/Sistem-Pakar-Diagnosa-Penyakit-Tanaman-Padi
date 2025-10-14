@@ -111,20 +111,27 @@ Route::prefix('rule')->name('rule.')->group(function () {
 
 
 
-Route::get('/diagnosa', [App\Http\Controllers\DiagnosaController::class, 'index'])
-    // ->middleware(['auth', 'verified'])
-    ->name('diagnosa');
+// Route::get('/diagnosa', [App\Http\Controllers\DiagnosaController::class, 'index'])
+//     // ->middleware(['auth', 'verified'])
+//     ->name('diagnosa');
 
-Route::post('/diagnosa', [App\Http\Controllers\DiagnosaController::class, 'diagnosa'])
-    ->name('diagnosa');
+// Route::post('/diagnosa', [App\Http\Controllers\DiagnosaController::class, 'diagnosa'])
+//     ->name('diagnosa');
 
-Route::get('/hasilDiagnosa', [App\Http\Controllers\DiagnosaController::class, 'HasilDiagnosa'])
-    ->middleware(['auth', 'verified'])
-    ->name('hasilDiagnosa');
+// Route::get('/hasilDiagnosa', [App\Http\Controllers\DiagnosaController::class, 'HasilDiagnosa'])
+//     ->middleware(['auth', 'verified'])
+//     ->name('hasilDiagnosa');
 
-Route::get('/diagnosa', function () {
-    return view('diagnosa');
-})->name('diagnosa');
+// Route::get('/diagnosa', function () {
+//     return view('diagnosa');
+// })->name('diagnosa');
+
+Route::get('/diagnosa', [App\Http\Controllers\DiagnosaController::class, 'index'])->name('diagnosa.index');
+Route::post('/diagnosa', [App\Http\Controllers\DiagnosaController::class, 'diagnosa'])->name('diagnosa.process');
+// Opsional: route untuk metode CF
+Route::post('/diagnosa/cf', [App\Http\Controllers\DiagnosaController::class, 'diagnosaCF'])->name('diagnosa.cf');
+
+
 
 Route::get('/Login', function () {
     return view('Login');

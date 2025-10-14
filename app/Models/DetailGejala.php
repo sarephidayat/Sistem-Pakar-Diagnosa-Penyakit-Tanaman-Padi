@@ -2,29 +2,36 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class DetailGejala extends Model
 {
-    protected $table = 'detail_gejala';
-    protected $primaryKey = 'id_detail_gejala';
-    protected $fillable = ['id_rule', 'id_gejala', 'id_status', 'bobot'];
+    use HasFactory;
 
-    // Relasi ke rule
+    protected $table = 'detail_gejala';
+    // Sesuaikan primary key jika berbeda
+    protected $primaryKey = 'id_detail_gejala'; 
+    
+    protected $fillable = [
+        'id_rule',
+        'id_gejala'
+        // jika ada kolom cf (certainty factor), tambahkan di sini
+    ];
+
+    /**
+     * Relationship dengan rule
+     */
     public function rule()
     {
         return $this->belongsTo(MasterRule::class, 'id_rule', 'id_rule');
     }
 
-    // Relasi ke gejala
+    /**
+     * Relationship dengan gejala
+     */
     public function gejala()
     {
         return $this->belongsTo(MasterGejala::class, 'id_gejala', 'id_gejala');
-    }
-
-    // Relasi ke status
-    public function status()
-    {
-        return $this->belongsTo(MasterStatus::class, 'id_status', 'id_status');
     }
 }
