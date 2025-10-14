@@ -22,7 +22,12 @@ class MasterRule extends Model
      */
     public function penyakit()
     {
-        return $this->belongsTo(MasterPenyakit::class, 'id_penyakit', 'id_penyakit');
+        return $this->belongsTo(MasterPenyakit::class, 'id_penyakit');
+    }
+
+    public function gejalas()
+    {
+        return $this->belongsToMany(MasterGejala::class, 'rule_gejala', 'id_rule', 'id_gejala');
     }
 
     /**

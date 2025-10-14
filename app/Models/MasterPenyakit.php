@@ -11,16 +11,7 @@ class MasterPenyakit extends Model
 
     protected $table = 'master_penyakit';
     protected $primaryKey = 'id_penyakit';
-    
-    // Jika ada kolom lain, tambahkan di sini
-    protected $fillable = [
-        'nama_penyakit',
-        'deskripsi', 
-        'solusi',
-        'pencegahan',
-        'foto_penyakit',
-        // tambahkan kolom lain sesuai struktur tabel Anda
-    ];
+    protected $fillable = ['kode_penyakit', 'nama_penyakit', 'solusi', 'deleted'];
 
     /**
      * Relationship dengan rules

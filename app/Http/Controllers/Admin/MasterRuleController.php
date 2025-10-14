@@ -13,7 +13,10 @@ class MasterRuleController extends Controller
      */
     public function index()
     {
-        //
+        // Ambil semua rule dengan nama penyakit dan daftar gejalanya
+        $rules = MasterRule::with(['penyakit', 'gejalas'])->get();
+
+        return view('admin.rules.index', compact('rules'));
     }
 
     /**

@@ -3,7 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\MasterRuleController;
 use App\Http\Controllers\Admin\MasterGejalaController;
+use App\Http\Controllers\Admin\MasterPenyakitController;
 
 // halaman utama
 Route::get('/', function () {
@@ -53,9 +55,59 @@ Route::prefix('gejala')->name('gejala.')->group(function () {
     // Update gejala
     Route::put('/gejala/{id}', [MasterGejalaController::class, 'update'])->name('update');
 
-    // Hapus gejala
-    Route::delete('/{id}', [MasterGejalaController::class, 'destroy'])->name('destroy');
+    // Soft delete gejala
+    Route::put('/{id}', [MasterGejalaController::class, 'destroy'])->name('destroy');
+
 });
+
+
+// penyakit 
+Route::prefix('penyakit')->name('penyakit.')->group(function () {
+    // Tampilkan semua penyakit
+    Route::get('/', [MasterPenyakitController::class, 'index'])->name('index');
+
+    // Form tambah penyakit
+    Route::get('/create', [MasterPenyakitController::class, 'create'])->name('create');
+
+    // Simpan penyakit baru
+    Route::post('/', [MasterPenyakitController::class, 'store'])->name('store');
+
+    // Form edit penyakit
+    Route::get('/edit/{id}', [MasterPenyakitController::class, 'edit'])->name('edit');
+
+    // Update penyakit
+    Route::put('/penyakit/{id}', [MasterPenyakitController::class, 'update'])->name('update');
+
+    // Soft delete penyakit
+    Route::put('/{id}', [MasterPenyakitController::class, 'destroy'])->name('destroy');
+
+});
+
+// rule 
+Route::prefix('rule')->name('rule.')->group(function () {
+    // Tampilkan semua rule
+    Route::get('/', [MasterRuleController::class, 'index'])->name('index');
+
+    // Form tambah rule
+    Route::get('/create', [MasterRuleController::class, 'create'])->name('create');
+
+    // Simpan rule baru
+    Route::post('/', [MasterRuleController::class, 'store'])->name('store');
+
+    // Form edit rule
+    Route::get('/edit/{id}', [MasterRuleController::class, 'edit'])->name('edit');
+
+    // Update rule
+    Route::put('/rule/{id}', [MasterRuleController::class, 'update'])->name('update');
+
+    // Soft delete rule
+    Route::put('/{id}', [MasterRuleController::class, 'destroy'])->name('destroy');
+
+});
+
+// =======================================================================================================
+
+
 
 
 

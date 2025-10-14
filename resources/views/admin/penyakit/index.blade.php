@@ -1,12 +1,12 @@
-@extends('layout.main')
+@extends('admin.layout.main')
 
 @section('title', 'List Dosen')
 
 @section('content')
 <section class="section">
   <div class="section-header d-flex justify-content-between">
-    <h1>List Dosen</h1>
-    <a href="{{ url('/dosen/create') }}" class="btn btn-primary">Tambah Data</a>
+    <h1>List penyakit</h1>
+    <a href="{{ url('/penyakit/create') }}" class="btn btn-primary">Tambah Data</a>
   </div>
   <div class="row">
     <div class="col-12">
@@ -16,31 +16,37 @@
             <table class="table table-hover table-striped w-100" id="table-1">
               <thead>
                 <tr>
-                  <th>NIDN</th>
-                  <th>Nama Dosen</th>
-                  <th>Jenis Kelamin</th>
-                  <th>Alamat</th>
+                  <th>No</th>
+                  <th>Kode penyakit</th>
+                  <th>Nama penyakit</th>
+                  <th>Solusi</th>
                   <th style="width: 150px">Aksi</th>
                 </tr>
               </thead>
               <tbody>
-                @foreach($dosen as $d)
-                <tr>
-                  <td>{{ $d->nidn }}</td>
-                  <td>{{ $d->nama_dosen }}</td>
-                  <td>{{ $d->jenkel_dosen }}</td>
-                  <td>{{ $d->alamat_dosen }}</td>
-                  <td>
-                    <a href="{{ url('/dosen/edit/'.$d->nidn) }}" class="btn btn-sm btn-info">
-                      <i class="fas fa-edit fa-fw"></i>
-                    </a>
-                    <a href="{{ url('/dosen/delete/'.$d->nidn) }}" class="btn btn-sm btn-danger"
-                      onclick="return confirm('Yakin ingin menghapus data ini?')">
-                      <i class="fas fa-trash fa-fw"></i>
-                    </a>
-                  </td>
-                </tr>
-                @endforeach
+                  @foreach($penyakits as $index => $penyakit)
+                      <tr>
+                          <td>{{ $penyakit->id_penyakit }}</td>
+                          <td>{{ $penyakit->kode_penyakit }}</td>
+                          <td>{{ $penyakit->nama_penyakit }}</td>
+                          <td>{!! nl2br(e($penyakit->solusi)) !!}</td>
+
+                          <td>
+                              <a href="{{ route('penyakit.edit', $penyakit->id_penyakit) }}" class="btn btn-warning btn-sm" title="Edit">
+                                  <i class="bi bi-pencil-square"></i>
+                              </a>
+
+                              <form action="{{ route('penyakit.destroy', $penyakit->id_penyakit) }}" method="POST" style="display:inline;">
+                                  @csrf
+                                  @method('PUT')
+                                  <button class="btn btn-danger btn-sm" onclick="return confirm('Yakin hapus data ini?')" title="Hapus">
+                                      <i class="bi bi-trash"></i>
+                                  </button>
+                              </form>
+
+                          </td>
+                      </tr>
+                  @endforeach
               </tbody>
             </table>
           </div>
