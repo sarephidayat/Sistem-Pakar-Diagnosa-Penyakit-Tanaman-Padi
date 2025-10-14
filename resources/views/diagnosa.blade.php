@@ -37,7 +37,7 @@
                 </div>
             </div>
 
-            <form action="{{ route('diagnosa') }}" method="POST" id="diagnosa-form">
+            <form action="{{ route('diagnosa.process') }}" method="POST" id="diagnosa-form">
                 @csrf
 
                 <div class="question-container" id="question-container">
