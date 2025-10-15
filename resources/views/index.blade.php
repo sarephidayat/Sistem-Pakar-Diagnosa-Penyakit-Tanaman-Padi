@@ -282,7 +282,7 @@
                     Mendapatkan diagnosis untuk tanaman padi Anda sederhana dan mudah.
                 </p>
             </div>
-            <div class="grid md:grid-cols-3 gap-8 justify-items-center align-items-center">
+            <div class="grid md:grid-cols-4 gap-8 justify-items-center align-items-center">
                 <div class="text-center" data-aos="fade-up">
                     <div class="bg-primary-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
                         <span class="text-primary-600 font-bold text-2xl">1</span>
@@ -538,7 +538,7 @@
                 Bergabunglah dengan ribuan petani yang melindungi tanaman mereka dengan OryzaDoc.
             </p>
             <div class="flex flex-wrap justify-center gap-4" data-aos="fade-up" data-aos-delay="200">
-                <a href="{{ route('diagnosa') }}" class="bg-white text-primary-600 hover:bg-gray-100 font-medium py-3 px-8 rounded-lg shadow-md transition duration-300">
+                <a href="{{ route('diagnosa.index') }}" class="bg-white text-primary-600 hover:bg-gray-100 font-medium py-3 px-8 rounded-lg shadow-md transition duration-300">
                     Mulai Diagnosis
                 </a>
                 <a href="#" class="border border-white text-white hover:bg-primary-700 font-medium py-3 px-8 rounded-lg transition duration-300">

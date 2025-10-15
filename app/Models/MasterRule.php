@@ -2,15 +2,24 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class MasterRule extends Model
 {
+    use HasFactory;
+
     protected $table = 'master_rule';
     protected $primaryKey = 'id_rule';
-    protected $fillable = ['id_penyakit'];
 
-    // relasi ke penyakit
+    protected $fillable = [
+        'id_penyakit'
+        // tambahkan kolom lain sesuai struktur tabel Anda
+    ];
+
+    /**
+     * Relationship dengan penyakit
+     */
     public function penyakit()
     {
         return $this->belongsTo(MasterPenyakit::class, 'id_penyakit');
@@ -21,20 +30,11 @@ class MasterRule extends Model
         return $this->belongsToMany(MasterGejala::class, 'rule_gejala', 'id_rule', 'id_gejala');
     }
 
-    // relasi ke detail rule (gejala2 yang terkait)
+    /**
+     * Relationship dengan detail_gejala
+     */
     public function detailGejala()
     {
         return $this->hasMany(DetailGejala::class, 'id_rule', 'id_rule');
     }
-
-    public function gejala()
-    {
-        return $this->belongsToMany(
-            MasterGejala::class,
-            'detail_gejala',
-            'id_rule',
-            'id_gejala'
-        );
-    }
-
 }
