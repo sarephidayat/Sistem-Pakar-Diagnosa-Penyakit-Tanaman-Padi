@@ -18,7 +18,8 @@ class DatabaseSeeder extends Seeder
             MasterPenyakitSeeder::class,
             MasterGejalaSeeder::class,
             MasterStatusSeeder::class,
-            MasterRuleSeeder::class
+            MasterRuleSeeder::class,
+            DetailGejalaSeeder::class
         ]);
     }
 }

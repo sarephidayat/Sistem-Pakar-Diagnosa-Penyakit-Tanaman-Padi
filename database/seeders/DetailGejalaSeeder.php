@@ -4,161 +4,132 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class DetailGejalaSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
     public function run(): void
     {
-        // Detail untuk Gejala Penyakit
-        // DB::table('detail_gejala')->insert([
+        $rulesList = [
+            'K01' => ['G001', 'G002', 'G003', 'G004', 'G005', 'G006', 'G007'],
+            'K02' => ['G002', 'G008', 'G009', 'G010', 'G011', 'G012'],
+            'K03' => ['G003', 'G013', 'G014'],
+            'K04' => ['G002', 'G013', 'G016', 'G017', 'G023', 'G024'],
+            'K05' => ['G010', 'G018', 'G019'],
+            'K06' => ['G024', 'G025', 'G026', 'G027', 'G028', 'G029', 'G030', 'G031'],
+            'K07' => ['G021', 'G022', 'G023', 'G025', 'G032', 'G033', 'G034'],
+            'K08' => ['G019', 'G020', 'G024', 'G036', 'G037', 'G038'],
+        ];
 
-        //     // R001 - Bercak dan Daun Coklat
-        //     [
-        //         'id_rule' => 1,
-        //         'id_gejala' => 5,
-        //         'id_status' => 1,
-        //         'bobot' => 0.8,
-        //         'created_at' => now(),
-        //         'updated_at' => now(),
-        //     ], // Biji bercak coklat tetapi tetap berisi
-        //     [
-        //         'id_rule' => 1,
-        //         'id_gejala' => 37,
-        //         'id_status' => 1,
-        //         'bobot' => 0.9,
-        //         'created_at' => now(),
-        //         'updated_at' => now(),
-        //     ], // bercak daun membesar
+        $gejalaWeightByName = [
+            'Menyerang Pelepah' => 0.75,
+            'Malai' => 1.00,
+            'Menyerang Buah yang baru tumbuh' => 1.00,
+            'Menyerang pada Kecambah' => 1.00,
+            'Biji bercak coklat tetapi tetap berisi' => 0.50,
+            'Biji Kecambah busuk' => 1.00,
+            'Kecambah mati' => 1.00,
+            'Padi dewasa busuk dan kering' => 1.00,
+            'Menyerang Bagian daun' => 0.75,
+            'Menyerang Buku pada malai' => 1.00,
+            'Pemasakan makanan terhambat' => 1.00,
+            'Butiran menjadi Hampa' => 1.00,
+            'Menyerang tangkai malai' => 1.00,
+            'Menyerang pelepah yang membentuk anakan' => 0.75,
+            'Jumlah gabah menurun' => 0.50,
+            'Kualitas Gabah kurang baik' => 0.50,
+            'Menyerang titik tumbuh padi' => 1.00,
+            'Terdapat garis-garis di antara tulang daun' => 0.75,
+            'Batang melepuh' => 0.75,
+            'Batang berisi cairan kehitaman' => 0.75,
+            'Daun Mengering' => 0.75,
+            'Daun Mati' => 0.75,
+            'Daun terkulai' => 0.75,
+            'Akar membusuk' => 1.00,
+            'Menyerang semua bagian tanaman' => 1.00,
+            'Daun menjadi pendek' => 0.50,
+            'Batang menjadi sempit' => 0.50,
+            'Tanaman berwarna hijau kekuningan' => 0.50,
+            'Batang menjadi pendek' => 0.50,
+            'Buku-Buku menjadi pendek' => 0.50,
+            'Anakan banyak tapi kecil' => 0.50,
+            'Pertumbuhan tanaman kurang sempurna' => 0.50,
+            'Daun menguning dan kecoklatan' => 0.75,
+            'Jumlah tunas berkurang' => 0.50,
+            'Malai menjadi kecil' => 0.75,
+            'Malai tidak berisi' => 1.00,
+            'Bercak daun membesar' => 0.75,
+            'Bercak kehitaman pada pelepah' => 0.75,
+        ];
 
-        //     // R002 - Blas
-        //     [
-        //         'id_rule' => 2,
-        //         'id_gejala' => 18,
-        //         'id_status' => 1,
-        //         'bobot' => 0.85,
-        //         'created_at' => now(),
-        //         'updated_at' => now(),
-        //     ], // Garis di antara tulang daun
-        //     [
-        //         'id_rule' => 2,
-        //         'id_gejala' => 36,
-        //         'id_status' => 1,
-        //         'bobot' => 0.9,
-        //         'created_at' => now(),
-        //         'updated_at' => now(),
-        //     ],  // Malai tidak berisi
+        // helper normalizer
+        $normalize = function ($s) {
+            $s = trim($s);
+            $s = preg_replace('/\s+/', ' ', $s); // collapse spaces
+            return mb_strtolower($s);
+        };
 
-        //     // R003 - Pelepah Daun
-        //     [
-        //         'id_rule' => 3,
-        //         'id_gejala' => 1,
-        //         'id_status' => 1,
-        //         'bobot' => 0.8,
-        //         'created_at' => now(),
-        //         'updated_at' => now(),
-        //     ],  // Menyerang Pelepah
-        //     [
-        //         'id_rule' => 3,
-        //         'id_gejala' => 38,
-        //         'id_status' => 1,
-        //         'bobot' => 0.85,
-        //         'created_at' => now(),
-        //         'updated_at' => now(),
-        //     ], // bercak kehitaman pada pelepah
+        // normalize mapping keys
+        $weightNorm = [];
+        foreach ($gejalaWeightByName as $name => $w) {
+            $weightNorm[$normalize($name)] = $w;
+        }
 
-        //     // R004 - Fusarium
-        //     [
-        //         'id_rule' => 4,
-        //         'id_gejala' => 6,
-        //         'id_status' => 1,
-        //         'bobot' => 0.8,
-        //         'created_at' => now(),
-        //         'updated_at' => now(),
-        //     ], // Biji Kecambah busuk
-        //     [
-        //         'id_rule' => 4,
-        //         'id_gejala' => 7,
-        //         'id_status' => 1,
-        //         'bobot' => 0.9,
-        //         'created_at' => now(),
-        //         'updated_at' => now(),
-        //     ], // Kecambah mati
+        // ambil id_status dari DB (cari label "Wajib" / "Opsional" jika tersedia)
+        $idStatusWajib = DB::table('master_status')->whereRaw('LOWER(nama_status) LIKE ?', ['%wajib%'])->value('id_status') ?? 1;
+        $idStatusOpsional = DB::table('master_status')->whereRaw('LOWER(nama_status) LIKE ?', ['%opsional%'])->value('id_status') ?? 2;
 
-        //     // R005 - Kresek Hawar Daun
-        //     [
-        //         'id_rule' => 5,
-        //         'id_gejala' => 21,
-        //         'id_status' => 1,
-        //         'bobot' => 0.85,
-        //         'created_at' => now(),
-        //         'updated_at' => now(),
-        //     ], // Daun Mengering
-        //     [
-        //         'id_rule' => 5,
-        //         'id_gejala' => 22,
-        //         'id_status' => 1,
-        //         'bobot' => 0.9,
-        //         'created_at' => now(),
-        //         'updated_at' => now(),
-        //     ],  // Daun Mati
+        $detailInserts = [];
+        $missing = ['master_rule_not_found' => [], 'master_gejala_not_found' => []];
 
-        //     // R006 - Kerdil
-        //     [
-        //         'id_rule' => 6,
-        //         'id_gejala' => 26,
-        //         'id_status' => 1,
-        //         'bobot' => 0.85,
-        //         'created_at' => now(),
-        //         'updated_at' => now(),
-        //     ], // Daun menjadi pendek
-        //     [
-        //         'id_rule' => 6,
-        //         'id_gejala' => 29,
-        //         'id_status' => 1,
-        //         'bobot' => 0.9,
-        //         'created_at' => now(),
-        //         'updated_at' => now(),
-        //     ],  // Batang menjadi pendek
+        foreach ($rulesList as $kodeRule => $kodeGejalaArr) {
+            $ruleRow = DB::table('master_rule')->where('kode_rule', $kodeRule)->first();
+            if (!$ruleRow) {
+                $missing['master_rule_not_found'][] = $kodeRule;
+                continue;
+            }
+            $idRule = $ruleRow->id_rule;
 
-        //     // R007 - Tungro
-        //     [
-        //         'id_rule' => 7,
-        //         'id_gejala' => 28,
-        //         'id_status' => 1,
-        //         'bobot' => 0.9,
-        //         'created_at' => now(),
-        //         'updated_at' => now(),
-        //     ],  // Tanaman hijau kekuningan
-        //     [
-        //         'id_rule' => 7,
-        //         'id_gejala' => 33,
-        //         'id_status' => 1,
-        //         'bobot' => 0.85,
-        //         'created_at' => now(),
-        //         'updated_at' => now(),
-        //     ], // Daun menguning kecoklatan
+            foreach ($kodeGejalaArr as $kodeGejala) {
+                $gejalaRow = DB::table('master_gejala')->where('kode_gejala', $kodeGejala)->first();
+                if (!$gejalaRow) {
+                    $missing['master_gejala_not_found'][] = $kodeGejala;
+                    continue;
+                }
 
-        //     // R008 - Batang Busuk
-        //     [
-        //         'id_rule' => 8,
-        //         'id_gejala' => 19,
-        //         'id_status' => 1,
-        //         'bobot' => 0.85,
-        //         'created_at' => now(),
-        //         'updated_at' => now(),
-        //     ], // Batang melepuh
-        //     [
-        //         'id_rule' => 8,
-        //         'id_gejala' => 20,
-        //         'id_status' => 1,
-        //         'bobot' => 0.9,
-        //         'created_at' => now(),
-        //         'updated_at' => now(),
-        //     ],  // Batang berisi cairan kehitaman
-        // ]);
+                $namaGejala = trim($gejalaRow->nama_gejala ?? '');
+                $norm = $normalize($namaGejala);
+
+                $bobot = $weightNorm[$norm] ?? 0.50; // default jika tidak match
+                $idStatus = ($bobot == 1.00) ? $idStatusWajib : $idStatusOpsional;
+
+                $detailInserts[] = [
+                    'id_rule' => $idRule,
+                    'id_gejala' => $gejalaRow->id_gejala,
+                    'id_status' => $idStatus,
+                    'bobot' => number_format((float) $bobot, 2, '.', ''),
+                    'created_at' => now(),
+                    'updated_at' => now(),
+                ];
+            }
+        }
+
+        if (!empty($detailInserts)) {
+            // gunakan upsert supaya bisa di-run ulang tanpa duplikat
+            DB::table('detail_gejala')->upsert(
+                $detailInserts,
+                ['id_rule', 'id_gejala'],            // unique keys
+                ['id_status', 'bobot', 'updated_at'] // fields to update jika sudah ada
+            );
+            $this->command->info('Upserted ' . count($detailInserts) . ' detail_gejala rows.');
+        } else {
+            $this->command->info('No detail_gejala to insert.');
+        }
+
+        if (!empty($missing['master_rule_not_found'])) {
+            $this->command->warn('Missing master_rule for: ' . implode(', ', array_unique($missing['master_rule_not_found'])));
+        }
+        if (!empty($missing['master_gejala_not_found'])) {
+            $this->command->warn('Missing master_gejala for: ' . implode(', ', array_unique($missing['master_gejala_not_found'])));
+        }
     }
 }

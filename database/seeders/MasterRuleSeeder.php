@@ -54,6 +54,7 @@ class MasterRuleSeeder extends Seeder
             ]);
         }
 
+
         // 4) Ambil id_rule dari DB (kode_rule -> id_rule)
         $masterRules = DB::table('master_rule')->pluck('id_rule', 'kode_rule')->toArray();
 

@@ -87,6 +87,7 @@
 </head>
 
 <body class="font-sans bg-white text-gray-800">
+    
     <!-- Navigation -->
     <nav class="fixed w-full bg-white shadow-sm z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -150,6 +151,7 @@
                         <a href="#how-it-works" class="border border-primary-500 text-primary-500 hover:bg-primary-50 font-medium py-3 px-6 rounded-lg transition duration-300">
                             Pelajari Lebih Lanjut
                         </a>
+                        <a href="/dashboard">dashboard</a>
                     </div>
                 </div>
                 <div class="md:w-1/2" data-aos="fade-left">

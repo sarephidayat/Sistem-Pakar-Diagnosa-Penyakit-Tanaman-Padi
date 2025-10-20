@@ -11,7 +11,7 @@ class MasterRule extends Model
 
     protected $table = 'master_rule';
     protected $primaryKey = 'id_rule';
-    
+
     protected $fillable = [
         'id_penyakit'
         // tambahkan kolom lain sesuai struktur tabel Anda
@@ -27,7 +27,7 @@ class MasterRule extends Model
 
     public function gejalas()
     {
-        return $this->belongsToMany(MasterGejala::class, 'rule_gejala', 'id_rule', 'id_gejala');
+        return $this->belongsToMany(MasterGejala::class, 'master_rule', 'id_rule', 'id_penyakit');
     }
 
     /**

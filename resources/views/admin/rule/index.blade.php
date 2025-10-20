@@ -13,41 +13,50 @@
       <div class="card">
         <div class="card-body">
           <div class="table-responsive">
-            <table class="table table-hover table-striped w-100" id="table-1">
+            <table class="table table-bordered">
               <thead>
-                <tr>
-                  <th>No</th>
-                  <th>Kode rule</th>
-                  <th>Nama Penyakit</th>
-                  <th>Gejala</th>
-                  <th style="width: 150px">Aksi</th>
-                </tr>
+                  <tr>
+                      <th>No</th>
+                      <th>Kode Rule</th>
+                      <th>Nama Penyakit</th>
+                      <th>Daftar Gejala</th>
+                      <th>Jumlah Gejala</th>
+                      <th>Aksi</th>
+                  </tr>
               </thead>
               <tbody>
-                  @foreach($rules as $index => $rule)
+                  @foreach ($rules as $index => $rule)
                       <tr>
-                          <td>{{ $rule->id_rule }}</td>
+                          <td>{{ $index + 1 }}</td>
                           <td>{{ $rule->kode_rule }}</td>
-                          <td>{{ $rule->nama_penyakit }}</td>
-                          <td>{{ $rule->gejala }}</td>
+                          <td>{{ $rule->penyakit->nama_penyakit ?? '-' }}</td>
                           <td>
-                              <a href="{{ route('rule.edit', $rule->id_rule) }}" class="btn btn-warning btn-sm" title="Edit">
-                                  <i class="bi bi-pencil-square"></i>
-                              </a>
+                              <ol style="padding-left: 20px; margin: 0;">
+                                  @foreach($rule->gejala as $gejala)
+                                      <li>{{ $gejala->nama_gejala }}</li>
+                                  @endforeach
+                              </ol>
+                          </td>
+                          <td>{{ $rule->gejala->count() }}</td>
+                          <td>
+                              {{-- Edit --}}
+                              <a href="{{ route('rule.edit', $rule->id_rule) }}" class="btn btn-sm btn-warning">Edit</a>
 
+                              {{-- Hapus --}}
                               <form action="{{ route('rule.destroy', $rule->id_rule) }}" method="POST" style="display:inline;">
                                   @csrf
-                                  @method('PUT')
-                                  <button class="btn btn-danger btn-sm" onclick="return confirm('Yakin hapus data ini?')" title="Hapus">
-                                      <i class="bi bi-trash"></i>
+                                  @method('PUT') {{-- karena route destroy kamu pakai PUT --}}
+                                  <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Yakin hapus data ini?')">
+                                      Hapus
                                   </button>
                               </form>
-
                           </td>
                       </tr>
                   @endforeach
               </tbody>
-            </table>
+          </table>
+
+
           </div>
         </div>
       </div>

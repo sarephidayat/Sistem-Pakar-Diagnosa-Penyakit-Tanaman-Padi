@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
 use App\Models\MasterRule;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Container\Attributes\DB;
 
 class MasterRuleController extends Controller
 {
@@ -13,10 +14,9 @@ class MasterRuleController extends Controller
      */
     public function index()
     {
-        // Ambil semua rule dengan nama penyakit dan daftar gejalanya
-        $rules = MasterRule::with(['penyakit', 'gejalas'])->get();
+        $rules = MasterRule::with(['penyakit', 'gejala'])->get();
 
-        return view('admin.rules.index', compact('rules'));
+        return view('admin.rule.index', compact('rules'));
     }
 
     /**
