@@ -41,266 +41,226 @@ document.addEventListener('DOMContentLoaded', function() {
         // { id_gejala: 38, pertanyaan: "Apakah terdapat bercak kehitaman pada pelepah padi?" }
     ];
 
-    const questionText = document.getElementById('question-text');
-    const questionNumber = document.getElementById('question-number');
-    const questionCounter = document.getElementById('question-counter');
-    const btnPrev = document.getElementById('btn-prev');
-    const btnNext = document.getElementById('btn-next');
-    const btnSubmit = document.getElementById('btn-submit');
-    const progressBar = document.getElementById('progress');
-    const progressText = document.getElementById('progress-text');
-    const hiddenFieldsContainer = document.getElementById('hidden-fields');
-    const questionContainer = document.getElementById('question-container');
-    const completionMessage = document.getElementById('completion-message');
-    const validationMessage = document.getElementById('validation-message');
-    const optionYa = document.getElementById('option-ya');
-    const optionTidak = document.getElementById('option-tidak');
-    
-    let currentQuestion = 0;
-    const answers = new Array(gejala.length).fill(null);
-    
-    // Initialize the form
-    function initializeForm() {
-        showQuestion(0);
-        updateProgressBar();
-        updateQuestionCounter();
-        updateNavigationButtons();
-        
-        // Add hidden fields for all questions
-        gejala.forEach((gejalaItem, index) => {
-            const hiddenInput = document.createElement('input');
-            hiddenInput.type = 'hidden';
-            hiddenInput.name = `gejala[${gejalaItem.id_gejala}]`;
-            hiddenInput.value = '';
-            hiddenInput.id = `hidden-input-${index}`;
-            hiddenFieldsContainer.appendChild(hiddenInput);
-        });
-    }
-    
-    // Show current question
-    function showQuestion(index) {
-        questionNumber.textContent = `Pertanyaan ${index + 1}:`;
-        questionText.textContent = gejala[index].pertanyaan;
-        
-        // Clear all radio selections
-        const radioButtons = document.querySelectorAll('input[name="currentAnswer"]');
-        radioButtons.forEach(radio => {
-            radio.checked = false;
-        });
-        
-        // Remove selected class from options
-        optionYa.classList.remove('selected');
-        optionTidak.classList.remove('selected');
-        
-        // If answer exists for this question, pre-select it
-        if (answers[index] !== null) {
-            const radioToCheck = document.querySelector(`input[name="currentAnswer"][value="${answers[index]}"]`);
-            if (radioToCheck) {
-                radioToCheck.checked = true;
-                if (answers[index] === 'ya') {
-                    optionYa.classList.add('selected');
-                } else {
-                    optionTidak.classList.add('selected');
-                }
-            }
-        }
-        
-        // Hide validation message
-        validationMessage.style.display = 'none';
-        
-        // Update navigation buttons
-        btnPrev.disabled = index === 0;
-        
-        if (index === gejala.length - 1) {
-            btnNext.style.display = 'none';
-            btnSubmit.style.display = 'block';
-        } else {
-            btnNext.style.display = 'block';
-            btnSubmit.style.display = 'none';
-        }
-        
-        // Show completion message if all questions answered
-        const allAnswered = answers.every(answer => answer !== null);
-        if (index === gejala.length - 1 && allAnswered) {
-            completionMessage.style.display = 'block';
-            questionContainer.style.display = 'none';
-            btnSubmit.disabled = false;
-            btnSubmit.classList.add('pulse');
-        } else {
-            completionMessage.style.display = 'none';
-            questionContainer.style.display = 'block';
-            btnSubmit.classList.remove('pulse');
-        }
-        
-        // Update navigation buttons based on current answer
-        updateNavigationButtons();
-        
-        // Animate question container
-        questionContainer.style.opacity = '0';
-        questionContainer.style.transform = 'translateY(10px)';
-        
-        setTimeout(() => {
-            questionContainer.style.opacity = '1';
-            questionContainer.style.transform = 'translateY(0)';
-        }, 300);
-    }
-    
-    // Update progress bar
-    function updateProgressBar() {
-        const progress = ((currentQuestion + 1) / gejala.length) * 100;
-        progressBar.style.width = `${progress}%`;
-        progressText.textContent = `${Math.round(progress)}% selesai`;
-    }
-    
-    // Update question counter
-    function updateQuestionCounter() {
-        questionCounter.textContent = `Pertanyaan ${currentQuestion + 1} dari ${gejala.length}`;
-    }
-    
-    // Save current answer
-    function saveAnswer() {
-        const selectedAnswer = document.querySelector('input[name="currentAnswer"]:checked');
-        if (selectedAnswer) {
-            answers[currentQuestion] = selectedAnswer.value;
             
-            // Update hidden field
-            const hiddenInput = document.getElementById(`hidden-input-${currentQuestion}`);
-            if (hiddenInput) {
-                hiddenInput.value = selectedAnswer.value;
-            }
+            const questionText = document.getElementById('question-text');
+            const questionNumber = document.getElementById('question-number');
+            const questionCounter = document.getElementById('question-counter');
+            const btnPrev = document.getElementById('btn-prev');
+            const btnNext = document.getElementById('btn-next');
+            const btnSubmit = document.getElementById('btn-submit');
+            const progressBar = document.getElementById('progress');
+            const progressText = document.getElementById('progress-text');
+            const hiddenFieldsContainer = document.getElementById('hidden-fields');
+            const questionContainer = document.getElementById('question-container');
+            const completionMessage = document.getElementById('completion-message');
+            const validationMessage = document.getElementById('validation-message');
+            const optionYa = document.getElementById('option-ya');
+            const optionTidak = document.getElementById('option-tidak');
             
-            // Hide validation message
-            validationMessage.style.display = 'none';
+            let currentQuestion = 0;
+            const answers = new Array(gejala.length).fill(null);
             
-            return true;
-        } else {
-            // Show validation message
-            validationMessage.style.display = 'block';
-            return false;
-        }
-    }
-    
-    // Check if all questions are answered
-    function checkAllAnswers() {
-        return answers.every(answer => answer !== null);
-    }
-    
-    // Update navigation buttons based on current answer
-    function updateNavigationButtons() {
-        const hasAnswer = answers[currentQuestion] !== null;
-        btnNext.disabled = !hasAnswer;
-        
-        // Enable submit button only when all questions are answered AND we're on the last question
-        if (currentQuestion === gejala.length - 1) {
-            btnSubmit.disabled = !checkAllAnswers();
-        }
-    }
-    
-    // Event listeners for option selection
-    optionYa.addEventListener('click', function() {
-        document.querySelector('input[value="ya"]').checked = true;
-        optionYa.classList.add('selected');
-        optionTidak.classList.remove('selected');
-        answers[currentQuestion] = 'ya';
-        updateNavigationButtons();
-        
-        // Auto-save and check if we should show completion
-        saveAnswer();
-        if (currentQuestion === gejala.length - 1 && checkAllAnswers()) {
-            completionMessage.style.display = 'block';
-            questionContainer.style.display = 'none';
-            btnSubmit.disabled = false;
-            btnSubmit.classList.add('pulse');
-        }
-        
-        validationMessage.style.display = 'none';
-    });
-    
-    optionTidak.addEventListener('click', function() {
-        document.querySelector('input[value="tidak"]').checked = true;
-        optionTidak.classList.add('selected');
-        optionYa.classList.remove('selected');
-        answers[currentQuestion] = 'tidak';
-        updateNavigationButtons();
-        
-        // Auto-save and check if we should show completion
-        saveAnswer();
-        if (currentQuestion === gejala.length - 1 && checkAllAnswers()) {
-            completionMessage.style.display = 'block';
-            questionContainer.style.display = 'none';
-            btnSubmit.disabled = false;
-            btnSubmit.classList.add('pulse');
-        }
-        
-        validationMessage.style.display = 'none';
-    });
-    
-    // Event listeners for navigation buttons
-    btnNext.addEventListener('click', function() {
-        if (saveAnswer()) {
-            if (currentQuestion < gejala.length - 1) {
-                currentQuestion++;
-                showQuestion(currentQuestion);
+            // Initialize the form
+            function initializeForm() {
+                showQuestion(0);
                 updateProgressBar();
                 updateQuestionCounter();
+                updateNavigationButtons();
+                
+                // Add hidden fields for all questions
+                gejala.forEach((gejala, index) => {
+                    const hiddenInput = document.createElement('input');
+                    hiddenInput.type = 'hidden';
+                    hiddenInput.name = `gejala[${gejala.id_gejala}]`;
+                    hiddenInput.value = '';
+                    hiddenInput.id = `hidden-input-${index}`;
+                    hiddenFieldsContainer.appendChild(hiddenInput);
+                });
             }
-        }
-    });
-    
-    btnPrev.addEventListener('click', function() {
-        if (currentQuestion > 0) {
-            // Save answer even if moving back
-            saveAnswer();
-            currentQuestion--;
-            showQuestion(currentQuestion);
-            updateProgressBar();
-            updateQuestionCounter();
-        }
-    });
-    
-    // Form submission handler
-    document.getElementById('diagnosa-form').addEventListener('submit', function(e) {
-        // Pastikan semua jawaban sudah disimpan
-        if (!checkAllAnswers()) {
-            e.preventDefault();
-            alert('Silakan jawab semua pertanyaan sebelum melakukan diagnosa.');
-            return;
-        }
-        
-        // Tampilkan loading state
-        btnSubmit.disabled = true;
-        btnSubmit.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Memproses...';
-    });
-    
-    // Add animation to options when clicked
-    document.querySelectorAll('.option-label').forEach(label => {
-        label.addEventListener('click', function() {
-            this.style.transform = 'scale(0.95)';
-            setTimeout(() => {
-                this.style.transform = '';
-            }, 200);
+            
+            // Show current question
+            function showQuestion(index) {
+                questionNumber.textContent = `Pertanyaan ${index + 1}:`;
+                questionText.textContent = gejala[index].pertanyaan;
+                
+                // Clear all radio selections
+                const radioButtons = document.querySelectorAll('input[name="currentAnswer"]');
+                radioButtons.forEach(radio => {
+                    radio.checked = false;
+                });
+                
+                // Remove selected class from options
+                optionYa.classList.remove('selected');
+                optionTidak.classList.remove('selected');
+                
+                // Hide validation message
+                validationMessage.style.display = 'none';
+                
+                // Update navigation buttons
+                btnPrev.disabled = index === 0;
+                
+                if (index === gejala.length - 1) {
+                    btnNext.style.display = 'none';
+                    btnSubmit.style.display = 'block';
+                } else {
+                    btnNext.style.display = 'block';
+                    btnSubmit.style.display = 'none';
+                }
+                
+                // Show completion message if all questions answered
+                if (index === gejala.length - 1 && answers.every(a => a !== null)) {
+                    completionMessage.style.display = 'block';
+                    btnSubmit.classList.add('pulse');
+                } else {
+                    completionMessage.style.display = 'none';
+                    btnSubmit.classList.remove('pulse');
+                }
+                
+                // Animate question container
+                questionContainer.style.opacity = '0';
+                questionContainer.style.transform = 'translateY(10px)';
+                
+                setTimeout(() => {
+                    questionContainer.style.opacity = '1';
+                    questionContainer.style.transform = 'translateY(0)';
+                }, 300);
+                
+                // Update navigation buttons based on current answer
+                updateNavigationButtons();
+            }
+            
+            // Update progress bar
+            function updateProgressBar() {
+                const progress = ((currentQuestion + 1) / gejala.length) * 100;
+                progressBar.style.width = `${progress}%`;
+                progressText.textContent = `${Math.round(progress)}% selesai`;
+            }
+            
+            // Update question counter
+            function updateQuestionCounter() {
+                questionCounter.textContent = `Pertanyaan ${currentQuestion + 1} dari ${gejala.length}`;
+            }
+            
+            // Save current answer
+            function saveAnswer() {
+                const selectedAnswer = document.querySelector('input[name="currentAnswer"]:checked');
+                if (selectedAnswer) {
+                    answers[currentQuestion] = selectedAnswer.value;
+                    
+                    // Update hidden field
+                    const hiddenInput = document.getElementById(`hidden-input-${currentQuestion}`);
+                    hiddenInput.value = selectedAnswer.value;
+                    
+                    // Hide validation message
+                    validationMessage.style.display = 'none';
+                    
+                    return true;
+                } else {
+                    // Show validation message
+                    validationMessage.style.display = 'block';
+                    return false;
+                }
+            }
+            
+            // Update navigation buttons based on current answer
+            function updateNavigationButtons() {
+                const hasAnswer = answers[currentQuestion] !== null;
+                btnNext.disabled = !hasAnswer;
+                
+                if (currentQuestion === gejala.length - 1) {
+                    btnSubmit.disabled = !hasAnswer;
+                }
+            }
+            
+            // Event listeners for option selection
+            optionYa.addEventListener('click', function() {
+                document.querySelector('input[value="ya"]').checked = true;
+                optionYa.classList.add('selected');
+                optionTidak.classList.remove('selected');
+                answers[currentQuestion] = 'ya';
+                updateNavigationButtons();
+                validationMessage.style.display = 'none';
+            });
+            
+            optionTidak.addEventListener('click', function() {
+                document.querySelector('input[value="tidak"]').checked = true;
+                optionTidak.classList.add('selected');
+                optionYa.classList.remove('selected');
+                answers[currentQuestion] = 'tidak';
+                updateNavigationButtons();
+                validationMessage.style.display = 'none';
+            });
+            
+            // Event listeners for navigation buttons
+            btnNext.addEventListener('click', function() {
+                if (saveAnswer()) {
+                    if (currentQuestion < gejala.length - 1) {
+                        currentQuestion++;
+                        showQuestion(currentQuestion);
+                        updateProgressBar();
+                        updateQuestionCounter();
+                    }
+                }
+            });
+            
+            btnPrev.addEventListener('click', function() {
+                if (currentQuestion > 0) {
+                    // Save answer even if moving back
+                    saveAnswer();
+                    currentQuestion--;
+                    showQuestion(currentQuestion);
+                    updateProgressBar();
+                    updateQuestionCounter();
+                }
+            });
+            
+            // Add animation to options when clicked
+            document.querySelectorAll('.option-label').forEach(label => {
+                label.addEventListener('click', function() {
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 200);
+                });
+            });
+            
+            // Initialize the form
+            initializeForm();
+            
+            // Add keyboard navigation
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'ArrowRight') {
+                    // Next question
+                    if (currentQuestion < gejala.length - 1 && answers[currentQuestion] !== null) {
+                        currentQuestion++;
+                        showQuestion(currentQuestion);
+                        updateProgressBar();
+                        updateQuestionCounter();
+                    }
+                } else if (e.key === 'ArrowLeft') {
+                    // Previous question
+                    if (currentQuestion > 0) {
+                        currentQuestion--;
+                        showQuestion(currentQuestion);
+                        updateProgressBar();
+                        updateQuestionCounter();
+                    }
+                } else if (e.key === '1' || e.key === 'y' || e.key === 'Y') {
+                    // Select 'Ya'
+                    document.querySelector('input[value="ya"]').checked = true;
+                    optionYa.classList.add('selected');
+                    optionTidak.classList.remove('selected');
+                    answers[currentQuestion] = 'ya';
+                    updateNavigationButtons();
+                    validationMessage.style.display = 'none';
+                } else if (e.key === '2' || e.key === 't' || e.key === 'T') {
+                    // Select 'Tidak'
+                    document.querySelector('input[value="tidak"]').checked = true;
+                    optionTidak.classList.add('selected');
+                    optionYa.classList.remove('selected');
+                    answers[currentQuestion] = 'tidak';
+                    updateNavigationButtons();
+                    validationMessage.style.display = 'none';
+                }
+            });
         });
-    });
-    
-    // Initialize the form
-    initializeForm();
-    
-    // Add keyboard navigation
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'ArrowRight' && currentQuestion < gejala.length - 1) {
-            // Next question
-            if (answers[currentQuestion] !== null) {
-                btnNext.click();
-            }
-        } else if (e.key === 'ArrowLeft' && currentQuestion > 0) {
-            // Previous question
-            btnPrev.click();
-        } else if (e.key === '1' || e.key === 'y' || e.key === 'Y') {
-            // Select 'Ya'
-            optionYa.click();
-        } else if (e.key === '2' || e.key === 't' || e.key === 'T') {
-            // Select 'Tidak'
-            optionTidak.click();
-        }
-    });
-});

@@ -37,17 +37,4 @@ class MasterRule extends Model
     {
         return $this->hasMany(DetailGejala::class, 'id_rule', 'id_rule');
     }
-
-    /**
-     * Relationship dengan gejala melalui detail_gejala
-     */
-    public function gejala()
-    {
-        return $this->belongsToMany(
-            MasterGejala::class,
-            'detail_gejala',
-            'id_rule',
-            'id_gejala'
-        );
-    }
 }

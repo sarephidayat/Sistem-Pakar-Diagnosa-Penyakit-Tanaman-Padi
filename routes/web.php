@@ -112,8 +112,7 @@ Route::prefix('rule')->name('rule.')->group(function () {
 
 
 // Route::get('/diagnosa', [App\Http\Controllers\DiagnosaController::class, 'index'])
-//     // ->middleware(['auth', 'verified'])
-//     ->name('diagnosa');
+//     ->name('diagnosa.index');
 
 // Route::post('/diagnosa', [App\Http\Controllers\DiagnosaController::class, 'diagnosa'])
 //     ->name('diagnosa');

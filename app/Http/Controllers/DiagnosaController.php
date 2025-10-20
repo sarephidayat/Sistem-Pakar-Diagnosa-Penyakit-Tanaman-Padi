@@ -21,7 +21,7 @@ class DiagnosaController extends Controller
     public function diagnosa(Request $request)
     {
         $input = $request->input('gejala', []);
-        
+
         // Normalisasi input - hanya ambil gejala yang dijawab "ya"
         $selectedGejala = [];
         foreach ($input as $id_gejala => $jawaban) {
@@ -41,20 +41,20 @@ class DiagnosaController extends Controller
 
         // Ambil semua penyakit beserta rules dan detail gejala
         $penyakitList = MasterPenyakit::with(['rules.detailGejala.gejala'])->get();
-        
+
         $results = [];
 
         foreach ($penyakitList as $penyakit) {
             $totalGejalaPenyakit = 0;
             $gejalaCocok = 0;
             $gejalaTerdeteksi = [];
-            
+
             // Hitung total gejala untuk penyakit ini dan gejala yang cocok
             foreach ($penyakit->rules as $rule) {
                 foreach ($rule->detailGejala as $detailGejala) {
                     $idGejala = $detailGejala->id_gejala;
                     $totalGejalaPenyakit++;
-                    
+
                     // Jika gejala ini dipilih user
                     if (in_array($idGejala, $selectedGejala)) {
                         $gejalaCocok++;
@@ -65,11 +65,11 @@ class DiagnosaController extends Controller
                     }
                 }
             }
-            
+
             // Hitung persentase kecocokan
             if ($totalGejalaPenyakit > 0) {
                 $persentase = ($gejalaCocok / $totalGejalaPenyakit) * 100;
-                
+
                 // Hanya tampilkan jika ada kecocokan
                 if ($persentase > 0) {
                     $results[] = [
@@ -99,7 +99,7 @@ class DiagnosaController extends Controller
     public function diagnosaCF(Request $request)
     {
         $input = $request->input('gejala', []);
-        
+
         $selectedGejala = [];
         foreach ($input as $id_gejala => $jawaban) {
             if ($jawaban === 'ya') {
@@ -121,18 +121,18 @@ class DiagnosaController extends Controller
         foreach ($penyakitList as $penyakit) {
             $cfTotal = 0;
             $gejalaTerdeteksi = [];
-            
+
             foreach ($penyakit->rules as $rule) {
                 foreach ($rule->detailGejala as $detailGejala) {
                     $idGejala = $detailGejala->id_gejala;
-                    
+
                     if (in_array($idGejala, $selectedGejala)) {
                         $cf = $detailGejala->cf ?? 0.8; // Gunakan CF dari database atau default
                         $gejalaTerdeteksi[$idGejala] = [
                             'gejala' => $detailGejala->gejala,
                             'cf' => $cf
                         ];
-                        
+
                         // Hitung CF Combine
                         if ($cfTotal == 0) {
                             $cfTotal = $cf;
@@ -142,7 +142,7 @@ class DiagnosaController extends Controller
                     }
                 }
             }
-            
+
             if (!empty($gejalaTerdeteksi)) {
                 $results[] = [
                     'penyakit' => $penyakit,
